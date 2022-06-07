@@ -14,9 +14,9 @@ enum API {
         static let microservice = "/athletes"
         
         case getAll
-        case getById(Int)
+        case getById(String)
         case photo(Int)
-        case results(Int)
+        case results(String)
         
         var rawValue: String {
             switch self {
@@ -38,7 +38,7 @@ enum API {
         static let microservice = "/games"
         
         case getAll
-        case getParticipats(Int)
+        case getParticipats(String)
 
         var rawValue: String {
             switch self {

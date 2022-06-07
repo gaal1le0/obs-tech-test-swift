@@ -24,6 +24,8 @@
 		E65779EC284F922500E69329 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = E65779EB284F922500E69329 /* Networking */; };
 		E65779EE284F953700E69329 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779ED284F953700E69329 /* API.swift */; };
 		E65779F0284F97FA00E69329 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779EF284F97FA00E69329 /* Constants.swift */; };
+		E65779F4284F992200E69329 /* Atthelete+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779F3284F992200E69329 /* Atthelete+Domain.swift */; };
+		E65779F6284F999800E69329 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779F5284F999800E69329 /* DateFormatter+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		E65779E9284F921B00E69329 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		E65779ED284F953700E69329 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E65779EF284F97FA00E69329 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E65779F3284F992200E69329 /* Atthelete+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atthelete+Domain.swift"; sourceTree = "<group>"; };
+		E65779F5284F999800E69329 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				E65779E4284F8FB400E69329 /* String+Extension.swift */,
+				E65779F5284F999800E69329 /* DateFormatter+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 		E65779F2284F987B00E69329 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				E65779F3284F992200E69329 /* Atthelete+Domain.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				E65779F0284F97FA00E69329 /* Constants.swift in Sources */,
 				E65779DB284F8E8B00E69329 /* RootCordinator.swift in Sources */,
 				E65779DE284F8EF900E69329 /* RootFactory.swift in Sources */,
+				E65779F4284F992200E69329 /* Atthelete+Domain.swift in Sources */,
 				E65779E7284F902600E69329 /* MainViewDataProvider.swift in Sources */,
 				E65779EE284F953700E69329 /* API.swift in Sources */,
 				E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */,
@@ -400,6 +407,7 @@
 				E65779E2284F8F7200E69329 /* MainViewContracts+Utilities.swift in Sources */,
 				E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */,
 				E65779E0284F8F4800E69329 /* MainViewModel.swift in Sources */,
+				E65779F6284F999800E69329 /* DateFormatter+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

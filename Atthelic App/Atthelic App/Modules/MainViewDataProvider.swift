@@ -8,6 +8,17 @@
 import Foundation
 import Networking
 
+struct AttheleteDTO: Decodable {
+    let athlete_id: String
+    let name: String
+    let surname: String
+    let dateOfBirth: String
+    let bio: String
+    let weight: Int
+    let height: Int
+    let photo_id: Int    
+}
+
 class MainViewDataProvider {
     
     // MARK: - Dependencies
