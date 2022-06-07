@@ -21,6 +21,7 @@
 		E65779E2284F8F7200E69329 /* MainViewContracts+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779E1284F8F7200E69329 /* MainViewContracts+Utilities.swift */; };
 		E65779E5284F8FB400E69329 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779E4284F8FB400E69329 /* String+Extension.swift */; };
 		E65779E7284F902600E69329 /* MainViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779E6284F902600E69329 /* MainViewDataProvider.swift */; };
+		E65779EC284F922500E69329 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = E65779EB284F922500E69329 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		E65779E1284F8F7200E69329 /* MainViewContracts+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewContracts+Utilities.swift"; sourceTree = "<group>"; };
 		E65779E4284F8FB400E69329 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E65779E6284F902600E69329 /* MainViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataProvider.swift; sourceTree = "<group>"; };
+		E65779E9284F921B00E69329 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E65779EC284F922500E69329 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +96,7 @@
 				E65779B8284F8E0B00E69329 /* Atthelic AppTests */,
 				E65779C2284F8E0B00E69329 /* Atthelic AppUITests */,
 				E65779A0284F8E0700E69329 /* Products */,
+				E65779EA284F922500E69329 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,8 +222,16 @@
 		E65779E8284F91F200E69329 /* DMI */ = {
 			isa = PBXGroup;
 			children = (
+				E65779E9284F921B00E69329 /* Networking */,
 			);
 			path = DMI;
+			sourceTree = "<group>";
+		};
+		E65779EA284F922500E69329 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +250,9 @@
 			dependencies = (
 			);
 			name = "Atthelic App";
+			packageProductDependencies = (
+				E65779EB284F922500E69329 /* Networking */,
+			);
 			productName = "Atthelic App";
 			productReference = E657799F284F8E0700E69329 /* Atthelic App.app */;
 			productType = "com.apple.product-type.application";
@@ -698,6 +713,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E65779EB284F922500E69329 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E6577997284F8E0700E69329 /* Project object */;
 }
