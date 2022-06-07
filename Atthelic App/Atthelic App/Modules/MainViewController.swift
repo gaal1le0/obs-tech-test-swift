@@ -21,18 +21,25 @@ class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         model?.viewWillAppear()
     }
-    
 
+}
+
+extension MainViewController {
+    func setupViews() {
+        
+        view.backgroundColor = .red
+        
+    }
 }
 
 extension MainViewController: MainViewOutput {
