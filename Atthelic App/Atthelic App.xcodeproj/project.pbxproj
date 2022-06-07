@@ -36,6 +36,7 @@
 		E6577A10284FB55E00E69329 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A0F284FB55E00E69329 /* DetailViewModel.swift */; };
 		E6577A12284FB58100E69329 /* DetailViewContracts+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A11284FB58100E69329 /* DetailViewContracts+Utilities.swift */; };
 		E6577A14284FB5AC00E69329 /* DetailViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A13284FB5AC00E69329 /* DetailViewDataProvider.swift */; };
+		E6577A16284FC04D00E69329 /* Game+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A15284FC04D00E69329 /* Game+Domain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		E6577A0F284FB55E00E69329 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		E6577A11284FB58100E69329 /* DetailViewContracts+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewContracts+Utilities.swift"; sourceTree = "<group>"; };
 		E6577A13284FB5AC00E69329 /* DetailViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDataProvider.swift; sourceTree = "<group>"; };
+		E6577A15284FC04D00E69329 /* Game+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Domain.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				E65779F3284F992200E69329 /* Atthelete+Domain.swift */,
+				E6577A15284FC04D00E69329 /* Game+Domain.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				E65779FA284FAA3400E69329 /* SplashScreenModel.swift in Sources */,
 				E6577A06284FADB700E69329 /* RootContainer.swift in Sources */,
 				E65779FC284FAA5300E69329 /* SplashScreenContracts+Utilities.swift in Sources */,
+				E6577A16284FC04D00E69329 /* Game+Domain.swift in Sources */,
 				E65779DB284F8E8B00E69329 /* RootCordinator.swift in Sources */,
 				E65779DE284F8EF900E69329 /* RootFactory.swift in Sources */,
 				E6577A04284FACFB00E69329 /* MainFactory.swift in Sources */,

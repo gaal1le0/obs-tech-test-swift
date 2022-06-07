@@ -7,10 +7,24 @@
 
 import Foundation
 
+struct MainViewStateDataState: Identifiable {
+    var id: Int
+    
+    enum _MainViewStateDataStateInt {
+        case loading
+        case error(String)
+        case data([Atthelete])
+    }
+    
+    let headerTitle: String
+    var state: _MainViewStateDataStateInt
+    
+}
+
 enum MainViewState {
     case loading
     case error(Error)
-    case data
+    case data([MainViewStateDataState])
 }
 
 protocol MainViewOutput: AnyObject {

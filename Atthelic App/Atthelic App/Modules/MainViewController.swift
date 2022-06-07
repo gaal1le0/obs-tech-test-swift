@@ -35,11 +35,15 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController {
+    
     func setupViews() {
         
         view.backgroundColor = .red
+        navigationController?.navigationBar.topItem?.title = "Olympic Athletes"
+            
         
     }
+    
 }
 
 extension MainViewController: MainViewOutput {

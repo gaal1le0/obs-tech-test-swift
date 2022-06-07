@@ -16,22 +16,24 @@ struct Atthelete: Identifiable {
     let biography: String
     let weight: Int
     let height: Int
-    let photoId: Int
+    let photoURI: String
+    let score: Int
     
-    init(_ dto: AttheleteDTO) {
+    init(_ dto: AttheleteDTO, score: AttheleteScoreDTO) {
         self.id = dto.athlete_id
         self.fullName = "\(dto.name) \(dto.surname)"
         self.dateOfBirth = DateFormatter.full_date_formatter.date(from: dto.dateOfBirth)
         self.biography = dto.bio
         self.weight = dto.weight
         self.height = dto.height
-        self.photoId = dto.photo_id
+        self.photoURI = API.Athletes.photo(dto.photo_id).rawValue
+        self.score = ((score.gold * 5) + (score.silver * 3) + (score.bronze * 1))
     }
     
 }
 
-extension Atthelete {
-    
-    //TODO: Include view dto used for showing into the view
-    
+extension Atthelete: Comparable {
+    static func < (lhs: Atthelete, rhs: Atthelete) -> Bool {
+        lhs.score < rhs.score
+    }
 }

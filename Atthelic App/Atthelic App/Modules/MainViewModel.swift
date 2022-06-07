@@ -20,6 +20,11 @@ class MainViewModel {
             self.view?.update(state)
         }
     }
+    private var dom: [MainViewStateDataState] = [] {
+        didSet {
+            self.state = .data(dom)
+        }
+    }
     
     // MARK: - Inits
     init(_ view: MainViewOutput, router: MainViewRouter, service: MainViewDataProvider) {
@@ -33,12 +38,52 @@ class MainViewModel {
     }
     
     // MARK: - Methods
+    private func getAttleteInfo(_ gameId: Int) {
+        service.getAttletes(gameId: String(gameId)) { attleteResults in
+            switch attleteResults {
+            case .failure(let error):
+                self.dom = self.dom.map { state -> MainViewStateDataState in
+                    if state.id == gameId {
+                        return .init(
+                            id: state.id, headerTitle: state.headerTitle, state: .error(error.localizedDescription)
+                        )
+                    }
+                    return state
+                }
+            case .success(let attletes):
+                self.dom = self.dom.map { state -> MainViewStateDataState in
+                    if state.id == gameId {
+                        return .init(
+                            id: state.id, headerTitle: state.headerTitle, state: .data(
+                                
+                            )
+                        )
+                    }
+                    return state
+                }
+            }
+            
+        }
+    }
     
+    private func getGroupData() {
+        state = .loading
+        service.getGameDTO { gamesCompletion in
+            switch gamesCompletion {
+            case .failure(let error): self.state = .error(error)
+            case .success(let games):
+                self.dom = games.map(Game.init).sorted {$0 > $1}.map {
+                    self.getAttleteInfo($0.id)
+                    return .init(id: $0.id, headerTitle: $0.asHeaderTitleFormatted, state: .loading)
+                }
+            }
+        }
+    }
     
 }
 
 extension MainViewModel: MainViewInput {
     func viewWillAppear() {
-        
+        getGroupData()
     }
 }
