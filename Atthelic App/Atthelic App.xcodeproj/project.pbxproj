@@ -16,6 +16,7 @@
 		E65779BA284F8E0B00E69329 /* Atthelic_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779B9284F8E0B00E69329 /* Atthelic_AppTests.swift */; };
 		E65779C4284F8E0B00E69329 /* Atthelic_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779C3284F8E0B00E69329 /* Atthelic_AppUITests.swift */; };
 		E65779C6284F8E0B00E69329 /* Atthelic_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779C5284F8E0B00E69329 /* Atthelic_AppUITestsLaunchTests.swift */; };
+		E65779DB284F8E8B00E69329 /* RootCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779DA284F8E8B00E69329 /* RootCordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E65779BF284F8E0B00E69329 /* Atthelic AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Atthelic AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65779C3284F8E0B00E69329 /* Atthelic_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atthelic_AppUITests.swift; sourceTree = "<group>"; };
 		E65779C5284F8E0B00E69329 /* Atthelic_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atthelic_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E65779DA284F8E8B00E69329 /* RootCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +101,10 @@
 		E65779A1284F8E0700E69329 /* Atthelic App */ = {
 			isa = PBXGroup;
 			children = (
-				E65779A2284F8E0700E69329 /* AppDelegate.swift */,
-				E65779A4284F8E0700E69329 /* SceneDelegate.swift */,
-				E65779A6284F8E0700E69329 /* ViewController.swift */,
-				E65779A8284F8E0700E69329 /* Main.storyboard */,
-				E65779AB284F8E0A00E69329 /* Assets.xcassets */,
+				E65779D9284F8E8100E69329 /* Root */,
+				E65779D5284F8E6000E69329 /* Modules */,
+				E65779D3284F8E5000E69329 /* Shared */,
+				E65779D2284F8E4600E69329 /* App */,
 				E65779AD284F8E0A00E69329 /* LaunchScreen.storyboard */,
 				E65779B0284F8E0A00E69329 /* Info.plist */,
 			);
@@ -125,6 +126,72 @@
 				E65779C5284F8E0B00E69329 /* Atthelic_AppUITestsLaunchTests.swift */,
 			);
 			path = "Atthelic AppUITests";
+			sourceTree = "<group>";
+		};
+		E65779D2284F8E4600E69329 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E65779A2284F8E0700E69329 /* AppDelegate.swift */,
+				E65779A4284F8E0700E69329 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E65779D3284F8E5000E69329 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E65779D4284F8E5600E69329 /* Resources */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E65779D4284F8E5600E69329 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E65779AB284F8E0A00E69329 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E65779D5284F8E6000E69329 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E65779D8284F8E7100E69329 /* Detail View */,
+				E65779D7284F8E6C00E69329 /* Splash Screen */,
+				E65779D6284F8E6500E69329 /* MainView  */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E65779D6284F8E6500E69329 /* MainView  */ = {
+			isa = PBXGroup;
+			children = (
+				E65779A6284F8E0700E69329 /* ViewController.swift */,
+				E65779A8284F8E0700E69329 /* Main.storyboard */,
+			);
+			name = "MainView ";
+			sourceTree = "<group>";
+		};
+		E65779D7284F8E6C00E69329 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		E65779D8284F8E7100E69329 /* Detail View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Detail View";
+			sourceTree = "<group>";
+		};
+		E65779D9284F8E8100E69329 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E65779DA284F8E8B00E69329 /* RootCordinator.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E65779DB284F8E8B00E69329 /* RootCordinator.swift in Sources */,
 				E65779A7284F8E0700E69329 /* ViewController.swift in Sources */,
 				E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */,
 				E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */,
