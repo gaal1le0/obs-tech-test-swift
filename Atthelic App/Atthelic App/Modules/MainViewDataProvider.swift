@@ -78,12 +78,10 @@ class MainViewDataProvider {
         
     func getAttletes(gameId: String, completion: @escaping (Result<[AttheleteDTO], Error>) -> Void) {
         let request = AttleteGroupedByGameRequest(gameId)
-        apiClient.send(request) { attleteCompletion in
-            
-        }
+        apiClient.send(request, completion: completion)
     }
     
-    func getAttleteScore(attleteId: Int, completion: @escaping (Result<[AttheleteScoreDTO], Error>) -> Void) {
+    func getAttleteScore(attleteId: String, completion: @escaping (Result<[AttheleteScoreDTO], Error>) -> Void) {
         let request = AttheleteScoreRequest(String(attleteId))
         apiClient.send(request, completion: completion)
     }

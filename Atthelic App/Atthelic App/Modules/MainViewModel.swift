@@ -38,12 +38,12 @@ class MainViewModel {
     }
     
     // MARK: - Methods
-    private func getAttleteInfo(_ gameId: Int) {
-        service.getAttletes(gameId: String(gameId)) { attleteResults in
+    private func getAttleteInfo(_ game: Game) {
+        service.getAttletes(gameId: String(game.id)) { attleteResults in
             switch attleteResults {
             case .failure(let error):
                 self.dom = self.dom.map { state -> MainViewStateDataState in
-                    if state.id == gameId {
+                    if state.id == game.id {
                         return .init(
                             id: state.id, headerTitle: state.headerTitle, state: .error(error.localizedDescription)
                         )
@@ -51,17 +51,26 @@ class MainViewModel {
                     return state
                 }
             case .success(let attletes):
-                self.dom = self.dom.map { state -> MainViewStateDataState in
-                    if state.id == gameId {
-                        return .init(
-                            id: state.id, headerTitle: state.headerTitle, state: .data(
-                                attletes.map {
-                                    Atthelete.init($0, score: .init(city: "manolo", year: 2020, gold: 10, silver: 1, bronze: 1))
-                                }
+                if !attletes.isEmpty {
+                    self.dom = self.dom.map { state -> MainViewStateDataState in
+                        if state.id == game.id {
+                            return .init(
+                                id: state.id, headerTitle: state.headerTitle, state: .data(
+                                    [] //TODO: Pending to analize
+                                )
                             )
-                        )
+                        }
+                        return state
                     }
-                    return state
+                } else {
+                    self.dom = self.dom.map { state -> MainViewStateDataState in
+                        if state.id == game.id {
+                            return .init(
+                                id: state.id, headerTitle: state.headerTitle, state: .error("There's no attlete on this game")
+                            )
+                        }
+                        return state
+                    }
                 }
             }
             
@@ -75,7 +84,7 @@ class MainViewModel {
             case .failure(let error): self.state = .error(error)
             case .success(let games):
                 self.dom = games.map(Game.init).sorted {$0 > $1}.map {
-                    self.getAttleteInfo($0.id)
+                    self.getAttleteInfo($0)
                     return .init(id: $0.id, headerTitle: $0.asHeaderTitleFormatted, state: .loading)
                 }
             }
