@@ -9,7 +9,7 @@ import Foundation
 
 extension DateFormatter {
     
-    static let full_date_formatter: DateFormatter = {
+    public static let full_date_formatter: DateFormatter = {
         let fmater = DateFormatter()
         fmater.dateFormat = "MM-dd-yyyy"
         fmater.timeZone = TimeZone.current
