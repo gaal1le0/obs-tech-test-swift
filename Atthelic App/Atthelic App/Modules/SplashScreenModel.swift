@@ -10,11 +10,15 @@ import Foundation
 class SplashScreenModel {
     
     // MARK: - Dependencies
-    var router: SplashScreenRouter?
+    private var router: SplashScreenRouter?
     
     // MARK: - Inits
     init(_ router: SplashScreenRouter) {
         self.router = router
+    }
+    
+    deinit {
+        print(">>> Deinit SplashScreenModel")
     }
     
 }

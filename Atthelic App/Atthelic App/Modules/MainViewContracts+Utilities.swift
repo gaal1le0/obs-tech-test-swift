@@ -14,7 +14,7 @@ enum MainViewState {
 }
 
 protocol MainViewOutput: AnyObject {
-    
+    func update(_ state: MainViewState)
 }
 
 protocol MainViewInput {

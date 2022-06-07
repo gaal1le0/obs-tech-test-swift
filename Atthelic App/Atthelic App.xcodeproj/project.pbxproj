@@ -32,6 +32,10 @@
 		E6577A06284FADB700E69329 /* RootContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A05284FADB700E69329 /* RootContainer.swift */; };
 		E6577A09284FAEEE00E69329 /* CoordinatorStuff+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A08284FAEEE00E69329 /* CoordinatorStuff+Base.swift */; };
 		E6577A0C284FB48A00E69329 /* AppUtils in Frameworks */ = {isa = PBXBuildFile; productRef = E6577A0B284FB48A00E69329 /* AppUtils */; };
+		E6577A0E284FB50F00E69329 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A0D284FB50F00E69329 /* DetailView.swift */; };
+		E6577A10284FB55E00E69329 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A0F284FB55E00E69329 /* DetailViewModel.swift */; };
+		E6577A12284FB58100E69329 /* DetailViewContracts+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A11284FB58100E69329 /* DetailViewContracts+Utilities.swift */; };
+		E6577A14284FB5AC00E69329 /* DetailViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A13284FB5AC00E69329 /* DetailViewDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		E6577A05284FADB700E69329 /* RootContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContainer.swift; sourceTree = "<group>"; };
 		E6577A08284FAEEE00E69329 /* CoordinatorStuff+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoordinatorStuff+Base.swift"; sourceTree = "<group>"; };
 		E6577A0A284FB30300E69329 /* AppUtils */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppUtils; sourceTree = "<group>"; };
+		E6577A0D284FB50F00E69329 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E6577A0F284FB55E00E69329 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		E6577A11284FB58100E69329 /* DetailViewContracts+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewContracts+Utilities.swift"; sourceTree = "<group>"; };
+		E6577A13284FB5AC00E69329 /* DetailViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +234,10 @@
 		E65779D8284F8E7100E69329 /* Detail View */ = {
 			isa = PBXGroup;
 			children = (
+				E6577A0D284FB50F00E69329 /* DetailView.swift */,
+				E6577A0F284FB55E00E69329 /* DetailViewModel.swift */,
+				E6577A13284FB5AC00E69329 /* DetailViewDataProvider.swift */,
+				E6577A11284FB58100E69329 /* DetailViewContracts+Utilities.swift */,
 			);
 			name = "Detail View";
 			sourceTree = "<group>";
@@ -418,6 +430,7 @@
 				E6577A02284FACDC00E69329 /* MainCoordinator.swift in Sources */,
 				E6577A09284FAEEE00E69329 /* CoordinatorStuff+Base.swift in Sources */,
 				E65779F0284F97FA00E69329 /* Constants.swift in Sources */,
+				E6577A10284FB55E00E69329 /* DetailViewModel.swift in Sources */,
 				E65779FA284FAA3400E69329 /* SplashScreenModel.swift in Sources */,
 				E6577A06284FADB700E69329 /* RootContainer.swift in Sources */,
 				E65779FC284FAA5300E69329 /* SplashScreenContracts+Utilities.swift in Sources */,
@@ -427,11 +440,14 @@
 				E65779F4284F992200E69329 /* Atthelete+Domain.swift in Sources */,
 				E65779E7284F902600E69329 /* MainViewDataProvider.swift in Sources */,
 				E65779EE284F953700E69329 /* API.swift in Sources */,
+				E6577A12284FB58100E69329 /* DetailViewContracts+Utilities.swift in Sources */,
 				E65779F8284FA9E700E69329 /* SplashScreenView.swift in Sources */,
 				E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */,
 				E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */,
 				E65779E2284F8F7200E69329 /* MainViewContracts+Utilities.swift in Sources */,
+				E6577A0E284FB50F00E69329 /* DetailView.swift in Sources */,
 				E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */,
+				E6577A14284FB5AC00E69329 /* DetailViewDataProvider.swift in Sources */,
 				E65779E0284F8F4800E69329 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

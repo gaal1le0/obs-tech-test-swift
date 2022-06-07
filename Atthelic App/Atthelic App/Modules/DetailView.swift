@@ -1,16 +1,17 @@
 //
-//  MainViewController.swift
+//  DetailView.swift
 //  Atthelic App
 //
 //  Created by Emanuel Martinez on 7/6/22.
 //
 
+import Foundation
 import UIKit
 
-class MainViewController: UIViewController {
+class DetailView: UIViewController {
     
     // MARK: - Dependencies
-    var model: MainViewInput?
+    var model: DetailViewInput?
     
     // MARK: - Inits
     init() {
@@ -21,7 +22,7 @@ class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - View Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -31,22 +32,19 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         model?.viewWillAppear()
     }
-
+    
 }
 
-extension MainViewController {
+extension DetailView {
+    
     func setupViews() {
         
-        view.backgroundColor = .red
-        
-    }
-}
-
-extension MainViewController: MainViewOutput {
-    
-    func update(_ state: MainViewState) {
-        #warning("Update view conforming state")
     }
     
 }
 
+extension DetailView: DetailViewOutput {
+    func update(_ state: DetailState) {
+        #warning("Configure view depending on the state")
+    }
+}
