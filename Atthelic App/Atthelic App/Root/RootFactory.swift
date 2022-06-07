@@ -10,10 +10,9 @@ import Networking
 
 struct RootFactory {
     
-    func createMainModule(_ router: MainViewRouter, apiClient: APIClient) -> MainViewController {
-        let view = MainViewController()
-        let service = MainViewDataProvider(apiClient)
-        let model = MainViewModel(view, router: router, service: service)
+    func createSplashModule(_ router: SplashScreenRouter) -> SplashScreenView {
+        let view = SplashScreenView()
+        let model = SplashScreenModel(router)
         view.model = model
         return view
     }

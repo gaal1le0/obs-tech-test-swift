@@ -26,6 +26,13 @@
 		E65779F0284F97FA00E69329 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779EF284F97FA00E69329 /* Constants.swift */; };
 		E65779F4284F992200E69329 /* Atthelete+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779F3284F992200E69329 /* Atthelete+Domain.swift */; };
 		E65779F6284F999800E69329 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779F5284F999800E69329 /* DateFormatter+Extension.swift */; };
+		E65779F8284FA9E700E69329 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779F7284FA9E700E69329 /* SplashScreenView.swift */; };
+		E65779FA284FAA3400E69329 /* SplashScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779F9284FAA3400E69329 /* SplashScreenModel.swift */; };
+		E65779FC284FAA5300E69329 /* SplashScreenContracts+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779FB284FAA5300E69329 /* SplashScreenContracts+Utilities.swift */; };
+		E6577A02284FACDC00E69329 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A01284FACDC00E69329 /* MainCoordinator.swift */; };
+		E6577A04284FACFB00E69329 /* MainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A03284FACFB00E69329 /* MainFactory.swift */; };
+		E6577A06284FADB700E69329 /* RootContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A05284FADB700E69329 /* RootContainer.swift */; };
+		E6577A09284FAEEE00E69329 /* CoordinatorStuff+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A08284FAEEE00E69329 /* CoordinatorStuff+Base.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +76,13 @@
 		E65779EF284F97FA00E69329 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E65779F3284F992200E69329 /* Atthelete+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atthelete+Domain.swift"; sourceTree = "<group>"; };
 		E65779F5284F999800E69329 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		E65779F7284FA9E700E69329 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		E65779F9284FAA3400E69329 /* SplashScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenModel.swift; sourceTree = "<group>"; };
+		E65779FB284FAA5300E69329 /* SplashScreenContracts+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreenContracts+Utilities.swift"; sourceTree = "<group>"; };
+		E6577A01284FACDC00E69329 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		E6577A03284FACFB00E69329 /* MainFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFactory.swift; sourceTree = "<group>"; };
+		E6577A05284FADB700E69329 /* RootContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContainer.swift; sourceTree = "<group>"; };
+		E6577A08284FAEEE00E69329 /* CoordinatorStuff+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoordinatorStuff+Base.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +175,7 @@
 		E65779D3284F8E5000E69329 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E6577A07284FAEDF00E69329 /* Base */,
 				E65779F2284F987B00E69329 /* Domain */,
 				E65779F1284F987200E69329 /* Static */,
 				E65779E3284F8FA900E69329 /* Extensions */,
@@ -180,6 +195,8 @@
 		E65779D5284F8E6000E69329 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E6577A03284FACFB00E69329 /* MainFactory.swift */,
+				E6577A01284FACDC00E69329 /* MainCoordinator.swift */,
 				E65779D8284F8E7100E69329 /* Detail View */,
 				E65779D7284F8E6C00E69329 /* Splash Screen */,
 				E65779D6284F8E6500E69329 /* MainView  */,
@@ -201,6 +218,9 @@
 		E65779D7284F8E6C00E69329 /* Splash Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E65779F7284FA9E700E69329 /* SplashScreenView.swift */,
+				E65779F9284FAA3400E69329 /* SplashScreenModel.swift */,
+				E65779FB284FAA5300E69329 /* SplashScreenContracts+Utilities.swift */,
 			);
 			name = "Splash Screen";
 			sourceTree = "<group>";
@@ -216,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				E65779DA284F8E8B00E69329 /* RootCordinator.swift */,
+				E6577A05284FADB700E69329 /* RootContainer.swift */,
 				E65779DD284F8EF900E69329 /* RootFactory.swift */,
 			);
 			path = Root;
@@ -260,6 +281,14 @@
 				E65779F3284F992200E69329 /* Atthelete+Domain.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		E6577A07284FAEDF00E69329 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E6577A08284FAEEE00E69329 /* CoordinatorStuff+Base.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,13 +424,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6577A02284FACDC00E69329 /* MainCoordinator.swift in Sources */,
+				E6577A09284FAEEE00E69329 /* CoordinatorStuff+Base.swift in Sources */,
 				E65779E5284F8FB400E69329 /* String+Extension.swift in Sources */,
 				E65779F0284F97FA00E69329 /* Constants.swift in Sources */,
+				E65779FA284FAA3400E69329 /* SplashScreenModel.swift in Sources */,
+				E6577A06284FADB700E69329 /* RootContainer.swift in Sources */,
+				E65779FC284FAA5300E69329 /* SplashScreenContracts+Utilities.swift in Sources */,
 				E65779DB284F8E8B00E69329 /* RootCordinator.swift in Sources */,
 				E65779DE284F8EF900E69329 /* RootFactory.swift in Sources */,
+				E6577A04284FACFB00E69329 /* MainFactory.swift in Sources */,
 				E65779F4284F992200E69329 /* Atthelete+Domain.swift in Sources */,
 				E65779E7284F902600E69329 /* MainViewDataProvider.swift in Sources */,
 				E65779EE284F953700E69329 /* API.swift in Sources */,
+				E65779F8284FA9E700E69329 /* SplashScreenView.swift in Sources */,
 				E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */,
 				E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */,
 				E65779E2284F8F7200E69329 /* MainViewContracts+Utilities.swift in Sources */,
@@ -581,7 +617,6 @@
 				INFOPLIST_FILE = "Atthelic App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -611,7 +646,6 @@
 				INFOPLIST_FILE = "Atthelic App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

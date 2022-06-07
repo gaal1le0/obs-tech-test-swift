@@ -25,8 +25,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let apiService = AtthelicsAPIClient(apiServiceBaseURL)
         let navigationController = UINavigationController()
         
+        let mainFactory = MainFactory()
+        let mainCoordinator = MainCoordinator(mainFactory, navigationController: UINavigationController(), apiClient: apiService)
+        
         guard let window = self.window else { fatalError("Window was not catched up") }
-        let coordinator = RootCoordinator(window, navigationController: navigationController, factory: factory, apiClient: apiService)
+        let coordinator = RootCoordinator(window, navigationController: navigationController, factory: factory, mainCoordinator: mainCoordinator)
         coordinator.start()
     }
 
