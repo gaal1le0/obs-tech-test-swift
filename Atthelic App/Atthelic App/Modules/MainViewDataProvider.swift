@@ -6,4 +6,18 @@
 //
 
 import Foundation
+import Networking
 
+class MainViewDataProvider {
+    
+    // MARK: - Dependencies
+    var apiClient: APIClient
+    
+    // MARK: - Inits
+    init(_ apiClient: APIClient) {
+        self.apiClient = apiClient
+    }
+    
+    // MARK: - Methods
+    
+}

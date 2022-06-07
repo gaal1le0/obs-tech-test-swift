@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import Networking
 
 struct RootFactory {
     
-    func createMainModule(_ router: MainViewRouter) -> MainViewController {
+    func createMainModule(_ router: MainViewRouter, apiClient: APIClient) -> MainViewController {
         let view = MainViewController()
-        let model = MainViewModel(view, router: router)
+        let service = MainViewDataProvider(apiClient)
+        let model = MainViewModel(view, router: router, service: service)
         view.model = model
         return view
     }

@@ -22,6 +22,8 @@
 		E65779E5284F8FB400E69329 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779E4284F8FB400E69329 /* String+Extension.swift */; };
 		E65779E7284F902600E69329 /* MainViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779E6284F902600E69329 /* MainViewDataProvider.swift */; };
 		E65779EC284F922500E69329 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = E65779EB284F922500E69329 /* Networking */; };
+		E65779EE284F953700E69329 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779ED284F953700E69329 /* API.swift */; };
+		E65779F0284F97FA00E69329 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779EF284F97FA00E69329 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		E65779E4284F8FB400E69329 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E65779E6284F902600E69329 /* MainViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataProvider.swift; sourceTree = "<group>"; };
 		E65779E9284F921B00E69329 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
+		E65779ED284F953700E69329 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E65779EF284F97FA00E69329 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 		E65779D3284F8E5000E69329 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E65779F2284F987B00E69329 /* Domain */,
+				E65779F1284F987200E69329 /* Static */,
 				E65779E3284F8FA900E69329 /* Extensions */,
 				E65779D4284F8E5600E69329 /* Resources */,
 			);
@@ -232,6 +238,22 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E65779F1284F987200E69329 /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				E65779ED284F953700E69329 /* API.swift */,
+				E65779EF284F97FA00E69329 /* Constants.swift */,
+			);
+			path = Static;
+			sourceTree = "<group>";
+		};
+		E65779F2284F987B00E69329 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,9 +390,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E65779E5284F8FB400E69329 /* String+Extension.swift in Sources */,
+				E65779F0284F97FA00E69329 /* Constants.swift in Sources */,
 				E65779DB284F8E8B00E69329 /* RootCordinator.swift in Sources */,
 				E65779DE284F8EF900E69329 /* RootFactory.swift in Sources */,
 				E65779E7284F902600E69329 /* MainViewDataProvider.swift in Sources */,
+				E65779EE284F953700E69329 /* API.swift in Sources */,
 				E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */,
 				E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */,
 				E65779E2284F8F7200E69329 /* MainViewContracts+Utilities.swift in Sources */,

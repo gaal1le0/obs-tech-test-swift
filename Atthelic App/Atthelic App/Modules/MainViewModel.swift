@@ -12,11 +12,13 @@ class MainViewModel {
     // MARK: - Dependencies
     weak var view: MainViewOutput?
     var router: MainViewRouter
+    var service: MainViewDataProvider
     
     // MARK: - Inits
-    init(_ view: MainViewOutput, router: MainViewRouter) {
+    init(_ view: MainViewOutput, router: MainViewRouter, service: MainViewDataProvider) {
         self.view = view
         self.router = router
+        self.service = service
     }
     
     // MARK: - Methods

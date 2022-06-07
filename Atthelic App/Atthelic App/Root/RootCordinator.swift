@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Networking
 
 class RootCoordinator {
     
@@ -14,17 +15,19 @@ class RootCoordinator {
     let window: UIWindow
     let navigationController: UINavigationController
     let factory: RootFactory
+    let apiClient: APIClient
     
     // MARK: - Inits
-    init(_ window: UIWindow, navigationController: UINavigationController, factory: RootFactory) {
+    init(_ window: UIWindow, navigationController: UINavigationController, factory: RootFactory, apiClient: APIClient) {
         self.window = window
         self.navigationController = navigationController
         self.factory = factory
+        self.apiClient = apiClient
     }
     
     // MARK: - Methods
     func start() {
-        let scene = factory.createMainModule(self)
+        let scene = factory.createMainModule(self, apiClient: apiClient)
         navigationController.viewControllers = [scene]
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

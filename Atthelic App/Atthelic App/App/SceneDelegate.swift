@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Networking
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,9 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let factory = RootFactory()
+        guard let apiServiceBaseURL = URL(string: Constants.kAPI.kBaseURL) else { fatalError("API Base Service URL is not available, Have you included it into Constants?") }
+        
+        let apiService = AtthelicsAPIClient(apiServiceBaseURL)
         let navigationController = UINavigationController()
+        
         guard let window = self.window else { fatalError("Window was not catched up") }
-        let coordinator = RootCoordinator(window, navigationController: navigationController, factory: factory)
+        let coordinator = RootCoordinator(window, navigationController: navigationController, factory: factory, apiClient: apiService)
         coordinator.start()
     }
 
