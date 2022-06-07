@@ -55,7 +55,9 @@ class MainViewModel {
                     if state.id == gameId {
                         return .init(
                             id: state.id, headerTitle: state.headerTitle, state: .data(
-                                
+                                attletes.map {
+                                    Atthelete.init($0, score: .init(city: "manolo", year: 2020, gold: 10, silver: 1, bronze: 1))
+                                }
                             )
                         )
                     }

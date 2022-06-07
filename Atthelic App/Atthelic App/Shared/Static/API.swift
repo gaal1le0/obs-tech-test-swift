@@ -21,13 +21,13 @@ enum API {
         var rawValue: String {
             switch self {
             case .getAll:
-                return "/\(Self.microservice)"
+                return "\(Self.microservice)"
             case .getById(let athleteId):
-                return "/\(Self.microservice)/\(athleteId)"
+                return "\(Self.microservice)/\(athleteId)"
             case .photo(let athleteId):
-                return "/\(Self.microservice)\(athleteId)/photo"
+                return "\(Self.microservice)\(athleteId)/photo"
             case .results(let athleteId):
-                return "/\(Self.microservice)\(athleteId)/results"
+                return "\(Self.microservice)\(athleteId)/results"
             }
         }
         
@@ -43,9 +43,9 @@ enum API {
         var rawValue: String {
             switch self {
             case .getAll:
-                return "/\(Self.microservice)"
+                return "\(Self.microservice)"
             case .getParticipats(let gameId):
-                return "/\(Self.microservice)/\(gameId)/athletes"
+                return "\(Self.microservice)/\(gameId)/athletes"
             }
         }
     }

@@ -49,7 +49,15 @@ extension MainViewController {
 extension MainViewController: MainViewOutput {
     
     func update(_ state: MainViewState) {
-        #warning("Update view conforming state")
+        switch state {
+        case .loading:
+            print("Loading")
+        case .error(let error):
+            print("ERROR \(error.localizedDescription)")
+        case .data(let array):
+            print("heyyyyyy")
+            print(array)
+        }
     }
     
 }
