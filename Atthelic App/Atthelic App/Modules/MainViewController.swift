@@ -57,6 +57,7 @@ extension MainViewController: MainViewOutput {
         case .data(let array):
             print("heyyyyyy")
             print(array)
+            print("Adiosss")
         }
     }
     

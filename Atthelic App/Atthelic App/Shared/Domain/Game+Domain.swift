@@ -24,7 +24,7 @@ struct Game {
 
 extension Game {
     var asHeaderTitleFormatted: String {
-        "\(self.title) - \(String(describing: self.year?.formatted()))"
+        "\(self.title) - \(String(describing: Calendar.full_year(self.year)))"
     }
 }
 

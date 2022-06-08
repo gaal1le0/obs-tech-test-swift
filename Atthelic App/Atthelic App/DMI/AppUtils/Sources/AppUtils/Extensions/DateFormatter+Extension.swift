@@ -19,7 +19,6 @@ extension DateFormatter {
     public static let year_formatter: DateFormatter = {
         let fmater = DateFormatter()
         fmater.dateFormat = "yyyy"
-        fmater.timeZone = TimeZone.current
         return fmater
     }()
     
