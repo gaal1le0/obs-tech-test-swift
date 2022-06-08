@@ -12,6 +12,7 @@ class DetailViewModel {
     // MARK: - Depedencies
     weak private var view: DetailViewOutput?
     private var service: DetailViewDataProvider
+    private var attleteId: String
     
     // MARK: - Properties
     private var state: DetailState = .loading {
@@ -21,9 +22,10 @@ class DetailViewModel {
     }
     
     // MARK: - Inits
-    init(_ view: DetailViewOutput, service: DetailViewDataProvider) {
+    init(_ view: DetailViewOutput, service: DetailViewDataProvider, attleteId: String) {
         self.view = view
         self.service = service
+        self.attleteId = attleteId
     }
     
     deinit {

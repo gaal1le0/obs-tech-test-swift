@@ -35,4 +35,9 @@ class MainCoordinator: CoordinatorStuff {
 // MARK: - Implementing Navigation Stuff
 extension MainCoordinator: MainViewRouter {
     
+    func showAttleteDetails(_ attleteId: String) {
+        let scene = factory.createDetailScene(apiClient, attleteId: attleteId)
+        navigationController.pushViewController(scene, animated: true)
+    }
+    
 }

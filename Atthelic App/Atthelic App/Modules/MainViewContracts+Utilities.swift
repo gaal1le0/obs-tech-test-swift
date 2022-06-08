@@ -37,5 +37,5 @@ protocol MainViewInput {
 }
 
 protocol MainViewRouter: AnyObject {
-    
+    func showAttleteDetails(_ attleteId: String)
 }
