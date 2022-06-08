@@ -22,7 +22,11 @@ class MainViewModel {
     }
     private var dom: [MainViewStateDataState] = [] {
         didSet {
-            self.state = .data(dom)
+            if !dom.isEmpty {
+                self.state = .data(dom)
+            } else {
+                self.state = .error("There's no data to show")
+            }
         }
     }
     
@@ -79,7 +83,6 @@ class MainViewModel {
     
     private func getGroupData() {
         state = .loading
-        dom = []
         service.getGameDTO { gamesCompletion in
             switch gamesCompletion {
             case .failure(let error): self.state = .error(error.localizedDescription)

@@ -41,8 +41,8 @@ extension ErrorView {
         label.numberOfLines = 0
         
         retryButton.backgroundColor = .clear
-        retryButton.tintColor = .black
-        retryButton.titleLabel?.font = .systemFont(ofSize: 11)
+        retryButton.titleLabel?.tintColor = .black
+        retryButton.titleLabel?.font = .systemFont(ofSize: 9)
         
         retryButton.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ extension ErrorView {
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
             label.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
-            retryButton.topAnchor.constraint(equalTo: label.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            retryButton.topAnchor.constraint(equalTo: label.safeAreaLayoutGuide.bottomAnchor, constant: 8),
             retryButton.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
         ])
         
