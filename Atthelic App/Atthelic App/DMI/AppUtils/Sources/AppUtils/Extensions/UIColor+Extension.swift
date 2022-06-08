@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     
     static func secureNaming(secureName: String) -> UIColor {
-        guard let color = UIColor(named: secureName) else {
+        guard let color = UIColor(named: secureName, in: .module, compatibleWith: nil) else {
             return .red
         }
         return color
