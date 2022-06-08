@@ -13,4 +13,10 @@ public enum Molecules {
         return Loader()
     }
     
+    public enum Views {
+        public static var Error: ErrorView {
+            return ErrorView()
+        }
+    }
+    
 }

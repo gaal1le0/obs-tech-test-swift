@@ -81,7 +81,7 @@ class MainViewModel {
         state = .loading
         service.getGameDTO { gamesCompletion in
             switch gamesCompletion {
-            case .failure(let error): self.state = .error(error)
+            case .failure(let error): self.state = .error(error.localizedDescription)
             case .success(let games):
                 self.dom = games.map(Game.init).sorted {$0 > $1}.map {
                     self.getAttleteInfo($0.id)

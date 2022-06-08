@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     // MARK: - Dependencies
     var model: MainViewInput?
     private let loader = Molecules.Spinner
+    private let errorView = Molecules.Views.Error
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     // MARK: - Inits
@@ -44,6 +45,8 @@ extension MainViewController {
         view.backgroundColor = .red
         navigationController?.navigationBar.topItem?.title = "Olympic Athletes"
         
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        
         loader.bind(.init(.black)) //TODO: Change for tokens
         loader.translatesAutoresizingMaskIntoConstraints = false
         
@@ -52,11 +55,14 @@ extension MainViewController {
         tableView.backgroundColor = .green
         
         view.addSubview(loader)
+        view.addSubview(errorView)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             loader.widthAnchor.constraint(equalTo: view.widthAnchor),
             loader.heightAnchor.constraint(equalTo: view.heightAnchor),
+            errorView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            errorView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
@@ -95,11 +101,15 @@ extension MainViewController: MainViewOutput {
         case .loading:
             self.loader.start()
             self.tableView.isHidden = true
+            self.errorView.isHidden = true
         case .error(let error):
             self.loader.stop()
             self.tableView.isHidden = true
+            self.errorView.isHidden = false
+            self.errorView.bind(.init(error))
         case .data(let array):
             self.loader.stop()
+            self.errorView.isHidden = true
             self.tableView.isHidden = false
             print("heyyyyyy")
             print(array)

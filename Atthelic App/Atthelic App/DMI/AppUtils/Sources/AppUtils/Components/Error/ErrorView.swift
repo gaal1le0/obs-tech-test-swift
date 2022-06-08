@@ -33,8 +33,8 @@ public class ErrorView: UIView {
 extension ErrorView {
     func setupViews() {
         
-        label.textColor = .lightGray
-        label.font = UIFont(name: "Helvetica", size: 12.0)
+        label.textColor = .black.withAlphaComponent(0.5)
+        label.font = UIFont(name: "Helvetica", size: 14.0)
         label.textAlignment = .center
         label.numberOfLines = 0
         

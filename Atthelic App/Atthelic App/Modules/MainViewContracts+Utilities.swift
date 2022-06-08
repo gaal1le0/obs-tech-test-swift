@@ -23,7 +23,7 @@ struct MainViewStateDataState: Identifiable {
 
 enum MainViewState {
     case loading
-    case error(Error)
+    case error(String)
     case data([MainViewStateDataState])
 }
 
