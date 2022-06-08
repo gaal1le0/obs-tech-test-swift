@@ -7,6 +7,7 @@
 
 import Foundation
 import Networking
+import Services
 
 class DetailViewDataProvider {
     
@@ -19,5 +20,9 @@ class DetailViewDataProvider {
     }
     
     // MARK: - Methods
+    func getAttleteDetailById(attleteId: String, completion: @escaping(Result<AttheleteDTO, Error>) -> ()) {
+        let request = AttleteProfileRequestById(attleteId)
+        apiClient.send(request, completion: completion)
+    }
     
 }

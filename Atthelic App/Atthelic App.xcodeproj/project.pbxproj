@@ -21,7 +21,6 @@
 		E65779E2284F8F7200E69329 /* MainViewContracts+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779E1284F8F7200E69329 /* MainViewContracts+Utilities.swift */; };
 		E65779E7284F902600E69329 /* MainViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779E6284F902600E69329 /* MainViewDataProvider.swift */; };
 		E65779EC284F922500E69329 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = E65779EB284F922500E69329 /* Networking */; };
-		E65779EE284F953700E69329 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779ED284F953700E69329 /* API.swift */; };
 		E65779F0284F97FA00E69329 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779EF284F97FA00E69329 /* Constants.swift */; };
 		E65779F4284F992200E69329 /* Atthelete+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779F3284F992200E69329 /* Atthelete+Domain.swift */; };
 		E65779F8284FA9E700E69329 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779F7284FA9E700E69329 /* SplashScreenView.swift */; };
@@ -37,6 +36,8 @@
 		E6577A12284FB58100E69329 /* DetailViewContracts+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A11284FB58100E69329 /* DetailViewContracts+Utilities.swift */; };
 		E6577A14284FB5AC00E69329 /* DetailViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A13284FB5AC00E69329 /* DetailViewDataProvider.swift */; };
 		E6577A16284FC04D00E69329 /* Game+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6577A15284FC04D00E69329 /* Game+Domain.swift */; };
+		E688B9B4285145A9004275F8 /* Measure+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E688B9B3285145A9004275F8 /* Measure+Domain.swift */; };
+		E688B9B928514A9C004275F8 /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E688B9B828514A9C004275F8 /* Services */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +76,6 @@
 		E65779E1284F8F7200E69329 /* MainViewContracts+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewContracts+Utilities.swift"; sourceTree = "<group>"; };
 		E65779E6284F902600E69329 /* MainViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataProvider.swift; sourceTree = "<group>"; };
 		E65779E9284F921B00E69329 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
-		E65779ED284F953700E69329 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E65779EF284F97FA00E69329 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E65779F3284F992200E69329 /* Atthelete+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atthelete+Domain.swift"; sourceTree = "<group>"; };
 		E65779F7284FA9E700E69329 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		E6577A11284FB58100E69329 /* DetailViewContracts+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewContracts+Utilities.swift"; sourceTree = "<group>"; };
 		E6577A13284FB5AC00E69329 /* DetailViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDataProvider.swift; sourceTree = "<group>"; };
 		E6577A15284FC04D00E69329 /* Game+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Domain.swift"; sourceTree = "<group>"; };
+		E688B9B3285145A9004275F8 /* Measure+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Measure+Domain.swift"; sourceTree = "<group>"; };
+		E688B9B5285146C2004275F8 /* Services */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Services; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E688B9B928514A9C004275F8 /* Services in Frameworks */,
 				E6577A0C284FB48A00E69329 /* AppUtils in Frameworks */,
 				E65779EC284F922500E69329 /* Networking in Frameworks */,
 			);
@@ -184,9 +187,9 @@
 		E65779D3284F8E5000E69329 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E65779EF284F97FA00E69329 /* Constants.swift */,
 				E6577A07284FAEDF00E69329 /* Base */,
 				E65779F2284F987B00E69329 /* Domain */,
-				E65779F1284F987200E69329 /* Static */,
 				E65779D4284F8E5600E69329 /* Resources */,
 			);
 			path = Shared;
@@ -257,6 +260,7 @@
 		E65779E8284F91F200E69329 /* DMI */ = {
 			isa = PBXGroup;
 			children = (
+				E688B9B5285146C2004275F8 /* Services */,
 				E6577A0A284FB30300E69329 /* AppUtils */,
 				E65779E9284F921B00E69329 /* Networking */,
 			);
@@ -270,20 +274,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E65779F1284F987200E69329 /* Static */ = {
-			isa = PBXGroup;
-			children = (
-				E65779ED284F953700E69329 /* API.swift */,
-				E65779EF284F97FA00E69329 /* Constants.swift */,
-			);
-			path = Static;
-			sourceTree = "<group>";
-		};
 		E65779F2284F987B00E69329 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				E65779F3284F992200E69329 /* Atthelete+Domain.swift */,
 				E6577A15284FC04D00E69329 /* Game+Domain.swift */,
+				E688B9B3285145A9004275F8 /* Measure+Domain.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -315,6 +311,7 @@
 			packageProductDependencies = (
 				E65779EB284F922500E69329 /* Networking */,
 				E6577A0B284FB48A00E69329 /* AppUtils */,
+				E688B9B828514A9C004275F8 /* Services */,
 			);
 			productName = "Atthelic App";
 			productReference = E657799F284F8E0700E69329 /* Atthelic App.app */;
@@ -434,6 +431,7 @@
 				E6577A09284FAEEE00E69329 /* CoordinatorStuff+Base.swift in Sources */,
 				E65779F0284F97FA00E69329 /* Constants.swift in Sources */,
 				E6577A10284FB55E00E69329 /* DetailViewModel.swift in Sources */,
+				E688B9B4285145A9004275F8 /* Measure+Domain.swift in Sources */,
 				E65779FA284FAA3400E69329 /* SplashScreenModel.swift in Sources */,
 				E6577A06284FADB700E69329 /* RootContainer.swift in Sources */,
 				E65779FC284FAA5300E69329 /* SplashScreenContracts+Utilities.swift in Sources */,
@@ -443,7 +441,6 @@
 				E6577A04284FACFB00E69329 /* MainFactory.swift in Sources */,
 				E65779F4284F992200E69329 /* Atthelete+Domain.swift in Sources */,
 				E65779E7284F902600E69329 /* MainViewDataProvider.swift in Sources */,
-				E65779EE284F953700E69329 /* API.swift in Sources */,
 				E6577A12284FB58100E69329 /* DetailViewContracts+Utilities.swift in Sources */,
 				E65779F8284FA9E700E69329 /* SplashScreenView.swift in Sources */,
 				E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */,
@@ -797,6 +794,10 @@
 		E6577A0B284FB48A00E69329 /* AppUtils */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppUtils;
+		};
+		E688B9B828514A9C004275F8 /* Services */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Services;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

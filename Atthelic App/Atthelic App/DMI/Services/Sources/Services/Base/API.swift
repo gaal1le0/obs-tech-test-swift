@@ -7,18 +7,18 @@
 
 import Foundation
 
-enum API {
+public enum API {
     
-    enum Athletes {
+    public enum Athletes {
         
-        static let microservice = "/athletes"
+        public static let microservice = "/athletes"
         
         case getAll
         case getById(String)
         case photo(Int)
         case results(String)
         
-        var rawValue: String {
+        public var rawValue: String {
             switch self {
             case .getAll:
                 return "\(Self.microservice)"
@@ -33,14 +33,14 @@ enum API {
         
     }
     
-    enum Games {
+    public enum Games {
         
-        static let microservice = "/games"
+        public static let microservice = "/games"
         
         case getAll
         case getParticipats(String)
 
-        var rawValue: String {
+        public var rawValue: String {
             switch self {
             case .getAll:
                 return "\(Self.microservice)"

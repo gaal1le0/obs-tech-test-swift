@@ -7,6 +7,7 @@
 
 import Foundation
 import AppUtils
+import Services
 
 struct Atthelete: Identifiable {
     
@@ -14,8 +15,7 @@ struct Atthelete: Identifiable {
     let fullName: String
     let dateOfBirth: Date?
     let biography: String
-    let weight: Int
-    let height: Int
+    let measure: Measure
     let photoURI: String
     let score: Int
     
@@ -24,12 +24,17 @@ struct Atthelete: Identifiable {
         self.fullName = "\(dto.name) \(dto.surname)"
         self.dateOfBirth = DateFormatter.full_date_formatter.date(from: dto.dateOfBirth)
         self.biography = dto.bio
-        self.weight = dto.weight
-        self.height = dto.height
+        self.measure = .init(weight: dto.weight, height: dto.height)
         self.photoURI = API.Athletes.photo(dto.photo_id).rawValue
         self.score = ((score.gold * 5) + (score.silver * 3) + (score.bronze * 1))
     }
     
+}
+
+extension Atthelete: Equatable {
+    static func == (lhs: Atthelete, rhs: Atthelete) -> Bool {
+        lhs.score == rhs.score
+    }
 }
 
 extension Atthelete: Comparable {

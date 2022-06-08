@@ -7,58 +7,7 @@
 
 import Foundation
 import Networking
-
-struct AttheleteDTO: Decodable {
-    let athlete_id: String
-    let name: String
-    let surname: String
-    let dateOfBirth: String
-    let bio: String
-    let weight: Int
-    let height: Int
-    let photo_id: Int    
-}
-
-struct GameDTO: Decodable {
-    let game_id: Int
-    let city: String
-    let year: Int
-}
-
-struct AttheleteScoreDTO: Decodable {
-    let city: String
-    let year: Int
-    let gold: Int
-    let silver: Int
-    let bronze: Int
-}
-
-class GameListRequest: JSONAPIRequest {
-    typealias APIResponse = [GameDTO]
-    var decoder: JSONDecoder = JSONDecoder()
-    
-    var resourcePath: String = API.Games.getAll.rawValue
-}
-
-class AttleteGroupedByGameRequest: JSONAPIRequest {
-    typealias APIResponse = [AttheleteDTO]
-    var decoder: JSONDecoder = JSONDecoder()
-    var resourcePath: String
-    
-    init(_ gameId: String) {
-        self.resourcePath = API.Games.getParticipats(gameId).rawValue
-    }
-}
-
-class AttheleteScoreRequest: JSONAPIRequest {
-    typealias APIResponse = [AttheleteScoreDTO]
-    var decoder: JSONDecoder = JSONDecoder()
-    var resourcePath: String
-    
-    init(_ attheleteId: String) {
-        self.resourcePath = API.Athletes.results(attheleteId).rawValue
-    }
-}
+import Services
 
 class MainViewDataProvider {
     
