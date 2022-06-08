@@ -36,6 +36,12 @@ class MainViewController: UIViewController {
         model?.viewWillAppear()
     }
 
+    // MARK: - Methods
+    @objc
+    func retryLoadingData() {
+        model?.retryLoadingData()
+    }
+    
 }
 
 extension MainViewController {
@@ -46,6 +52,7 @@ extension MainViewController {
         navigationController?.navigationBar.topItem?.title = "Olympic Athletes"
         
         errorView.translatesAutoresizingMaskIntoConstraints = false
+        errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
         loader.bind(.init(.black)) //TODO: Change for tokens
         loader.translatesAutoresizingMaskIntoConstraints = false
@@ -102,15 +109,21 @@ extension MainViewController: MainViewOutput {
             self.loader.start()
             self.tableView.isHidden = true
             self.errorView.isHidden = true
+            self.errorView.retryButton.isUserInteractionEnabled = false
+            
         case .error(let error):
             self.loader.stop()
             self.tableView.isHidden = true
             self.errorView.isHidden = false
-            self.errorView.bind(.init(error))
+            self.errorView.bind(.init(error, retryButtonText: "Retry ☺️"))
+            self.errorView.retryButton.isUserInteractionEnabled = true
+            
         case .data(let array):
             self.loader.stop()
             self.errorView.isHidden = true
             self.tableView.isHidden = false
+            self.errorView.retryButton.isUserInteractionEnabled = false
+            
             print("heyyyyyy")
             print(array)
             print("Adiosss")

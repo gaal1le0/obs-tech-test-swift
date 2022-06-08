@@ -33,6 +33,7 @@ protocol MainViewOutput: AnyObject {
 
 protocol MainViewInput {
     func viewWillAppear()
+    func retryLoadingData()
 }
 
 protocol MainViewRouter: AnyObject {

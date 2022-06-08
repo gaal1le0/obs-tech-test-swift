@@ -79,6 +79,7 @@ class MainViewModel {
     
     private func getGroupData() {
         state = .loading
+        dom = []
         service.getGameDTO { gamesCompletion in
             switch gamesCompletion {
             case .failure(let error): self.state = .error(error.localizedDescription)
@@ -95,6 +96,11 @@ class MainViewModel {
 
 extension MainViewModel: MainViewInput {
     func viewWillAppear() {
+        getGroupData()
+    }
+    
+    func retryLoadingData() {
+        print(">>> Retry loading data from API")
         getGroupData()
     }
 }

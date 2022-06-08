@@ -10,9 +10,11 @@ import Foundation
 public struct ErrorViewModel {
     
     let message: String
+    let retryButtonText: String
     
-    public init(_ message: String) {
+    public init(_ message: String, retryButtonText: String) {
         self.message = message
+        self.retryButtonText = retryButtonText
     }
     
 }

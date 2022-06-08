@@ -12,6 +12,7 @@ public class ErrorView: UIView {
     
     // MARK: - Properties
     private let label = UILabel(frame: .zero)
+    public let retryButton = UIButton(frame: .zero)
     
     // MARK: - Inits
     init() {
@@ -26,6 +27,7 @@ public class ErrorView: UIView {
     // MARK: - Methods
     public func bind(_ model: ErrorViewModel) {
         label.text = model.message
+        retryButton.setTitle(model.retryButtonText, for: .normal)
     }
     
 }
@@ -38,13 +40,21 @@ extension ErrorView {
         label.textAlignment = .center
         label.numberOfLines = 0
         
+        retryButton.backgroundColor = .clear
+        retryButton.tintColor = .black
+        retryButton.titleLabel?.font = .systemFont(ofSize: 11)
+        
+        retryButton.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
+        addSubview(retryButton)
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
+            label.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
+            retryButton.topAnchor.constraint(equalTo: label.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            retryButton.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
         ])
         
     }
