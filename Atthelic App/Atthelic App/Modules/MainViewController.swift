@@ -12,7 +12,8 @@ class MainViewController: UIViewController {
     
     // MARK: - Dependencies
     var model: MainViewInput?
-    private var loader = Molecules.Spinner
+    private let loader = Molecules.Spinner
+    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     // MARK: - Inits
     init() {
@@ -46,14 +47,45 @@ extension MainViewController {
         loader.bind(.init(.black)) //TODO: Change for tokens
         loader.translatesAutoresizingMaskIntoConstraints = false
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .green
+        
         view.addSubview(loader)
+        view.addSubview(tableView)
+        
         NSLayoutConstraint.activate([
             loader.widthAnchor.constraint(equalTo: view.widthAnchor),
-            loader.heightAnchor.constraint(equalTo: view.heightAnchor)
+            loader.heightAnchor.constraint(equalTo: view.heightAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
         
     }
     
+}
+
+extension MainViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}
+
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 extension MainViewController: MainViewOutput {
@@ -62,10 +94,13 @@ extension MainViewController: MainViewOutput {
         switch state {
         case .loading:
             self.loader.start()
+            self.tableView.isHidden = true
         case .error(let error):
             self.loader.stop()
+            self.tableView.isHidden = true
         case .data(let array):
             self.loader.stop()
+            self.tableView.isHidden = false
             print("heyyyyyy")
             print(array)
             print("Adiosss")
