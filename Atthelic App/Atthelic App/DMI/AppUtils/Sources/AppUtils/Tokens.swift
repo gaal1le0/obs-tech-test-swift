@@ -10,6 +10,8 @@ import UIKit
 
 public enum Tokens {
     
+    public enum FontFamily {}
+    
     public enum Colors {
         
         public enum Grayscale {

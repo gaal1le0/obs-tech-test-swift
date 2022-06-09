@@ -55,6 +55,7 @@ extension SplashScreenView {
         titleLogo.attributedText = title
         titleLogo.textAlignment = .center
         titleLogo.translatesAutoresizingMaskIntoConstraints = false
+        titleLogo.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
         logo.translatesAutoresizingMaskIntoConstraints = false
 
         view.addSubview(logo)

@@ -7,6 +7,7 @@
 
 import UIKit
 import Networking
+import AppUtils
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
+    
+        UIFont.overrideDefaultTypography()
         
         let factory = RootFactory()
         guard let apiServiceBaseURL = URL(string: Constants.kAPI.kBaseURL) else { fatalError("API Base Service URL is not available, Have you included it into Constants?") }
