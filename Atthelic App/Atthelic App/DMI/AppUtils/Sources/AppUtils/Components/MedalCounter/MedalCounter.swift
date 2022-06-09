@@ -50,17 +50,12 @@ extension MedalCounter {
         circular()
         circle.circular()
         
-        circle.layer.borderWidth = 1
-        circle.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(circle)
+        circle.layer.borderWidth = 1        
+        fill(circle, edges: Tokens.Edges.Primary)
         
         NSLayoutConstraint.activate([
             circle.widthAnchor.constraint(equalToConstant: 28),
             circle.heightAnchor.constraint(equalToConstant: 28),
-            circle.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            circle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
-            circle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
-            circle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
         ])
         
     }

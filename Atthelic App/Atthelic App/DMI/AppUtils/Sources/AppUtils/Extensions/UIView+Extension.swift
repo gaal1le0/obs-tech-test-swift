@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    public func fill(_ content: UIView = UIView(), edges: UIEdgeInsets = .zero) {
+    public func fill(_ content: UIView = Atoms.Flexible.View, edges: UIEdgeInsets = .zero) {
         content.translatesAutoresizingMaskIntoConstraints = false
         addSubview(content)
         
@@ -22,7 +22,7 @@ extension UIView {
         ])
     }
     
-    public func rounded(_ cornerRadius: CGFloat = Tokens.Radius.corner) {
+    public func rounded(_ cornerRadius: CGFloat = Tokens.Radius.Corner) {
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
     }

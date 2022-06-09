@@ -10,6 +10,15 @@ import UIKit
 
 public enum Atoms {
     
+    public enum Flexible {
+        public static var View: UIView {
+            let view = UIView()
+            view.setContentHuggingPriority(.init(rawValue: 0), for: .horizontal)
+            view.setContentHuggingPriority(.init(rawValue: 0), for: .vertical)
+            return view
+        }
+    }
+    
     public enum StackViews {
         public static var Horizontal: UIStackView {
             let stackView = UIStackView()

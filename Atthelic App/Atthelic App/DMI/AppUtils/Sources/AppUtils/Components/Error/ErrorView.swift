@@ -53,7 +53,6 @@ extension ErrorView {
         allSubviews.forEach { container.addArrangedSubview($0) }
         
         container.spacing = 8
-        container.translatesAutoresizingMaskIntoConstraints = false
         fill(container)
         
     }

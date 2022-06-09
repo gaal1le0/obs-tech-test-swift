@@ -13,7 +13,11 @@ public enum Tokens {
     public enum FontFamily {}
     
     public enum Radius {
-        public static var corner: CGFloat = 8
+        public static let Corner: CGFloat = 8
+    }
+    
+    public enum Edges {
+        public static let Primary = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
     }
     
     public enum Colors {

@@ -51,8 +51,6 @@ extension Profile {
         allSubviews.forEach { container.addArrangedSubview($0) }
         
         container.spacing = 18
-        container.translatesAutoresizingMaskIntoConstraints = false
-        
         fill(container)
         
         NSLayoutConstraint.activate([
