@@ -15,22 +15,23 @@ class CellTestViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let dataset: [GameCellModel] = [
         .init(gameName: "Olimpiadas", gameYear: "2022", attletes: [
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!, onTouchUpInside: {
-                print("Click on Manolo Escobar")
-            }),
-            .init(fullName: "Paco Ramirez", profileImage: UIImage(named: "exampleProfile")!, onTouchUpInside: {
-                print("Click on Paco Ramirez")
-            }),
-            .init(fullName: "Juan Baltazar", profileImage: UIImage(named: "exampleProfile")!, onTouchUpInside: {
-                print("Click on Juan Baltazar")
-            }),
-            .init(fullName: "Reina Sofia", profileImage: UIImage(named: "exampleProfile")!, onTouchUpInside: {
-                print("Click on Reina Sofia")
-            }),
-            .init(fullName: "Pedro Sanchez", profileImage: UIImage(named: "exampleProfile")!, onTouchUpInside: {
-                print("Click on Pedro Sachez")
-            })
-        ]),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!)
+        ], callback: { index in
+            print("Value selected \(index)")
+        }),
+        .init(gameName: "Olimpiadas", gameYear: "2022", attletes: [
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!)
+        ], callback: { index in
+            print("Value selected \(index)")
+        })
     ]
     
     // MARK: - Inits
@@ -68,11 +69,11 @@ extension CellTestViewController {
 
 extension CellTestViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        dataset.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataset.count
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

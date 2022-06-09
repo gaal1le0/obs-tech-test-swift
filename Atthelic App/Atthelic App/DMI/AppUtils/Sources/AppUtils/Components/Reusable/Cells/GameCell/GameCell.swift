@@ -18,6 +18,7 @@ public class GameCell: UITableViewCell {
         }
     }
     
+    var callback: ((Int) -> Void)?
     let container = Atoms.StackViews.Vertical
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -85,6 +86,12 @@ extension GameCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension GameCell: UICollectionViewDelegate {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        callback?(indexPath.row)
+    }
+}
+
 extension GameCell {
     func setupViews() {
      
@@ -94,6 +101,9 @@ extension GameCell {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.isDirectionalLockEnabled = false
+        collectionView.isScrollEnabled = true
         
         separator.rounded()
         separator.backgroundColor = Tokens.Colors.Background.Primary

@@ -58,9 +58,7 @@ extension TestViewController {
         mainStackView.backgroundColor = .white
         navigationItem.title = "Testing Base Components"
         
-        profileView.bind(.init(fullName: "Manolo Picapiedras", profileImage: UIImage(named: "exampleProfile")!, onTouchUpInside: {
-            print("Pls move to detail view ;)")
-        }))
+        profileView.bind(.init(fullName: "Manolo Picapiedras", profileImage: UIImage(named: "exampleProfile")!))
         profileView.translatesAutoresizingMaskIntoConstraints = false
         
         let medals = prepareMedals()

@@ -12,11 +12,9 @@ public struct ProfileModel {
     
     let fullName: String
     let profileImage: UIImage
-    let onTouchUpInside: () -> Void
     
-    public init(fullName: String, profileImage: UIImage, onTouchUpInside: @escaping () -> Void) {
+    public init(fullName: String, profileImage: UIImage) {
         self.fullName = fullName
         self.profileImage = profileImage
-        self.onTouchUpInside = onTouchUpInside
     }
 }
