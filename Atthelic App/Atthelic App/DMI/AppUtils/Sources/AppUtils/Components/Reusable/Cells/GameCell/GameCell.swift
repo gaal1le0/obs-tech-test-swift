@@ -180,8 +180,7 @@ extension GameCell {
             headerContainer.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 2),
             headerContainer.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -2),
             separator.heightAnchor.constraint(equalToConstant: 4),
-            separator.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 10),
-            separator.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -10),
+            separator.widthAnchor.constraint(equalTo: headerContainer.widthAnchor)
         ])
         
     }

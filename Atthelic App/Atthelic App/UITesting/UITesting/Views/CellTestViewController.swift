@@ -51,6 +51,7 @@ class CellTestViewController: UIViewController {
 
 extension CellTestViewController {
     func setupViews() {
+    
         view.backgroundColor = Tokens.Colors.Grayscale.Quaternary
         navigationItem.title = "Cell Testing"
         tableView.backgroundColor = .clear
