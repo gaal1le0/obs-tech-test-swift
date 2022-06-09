@@ -10,7 +10,7 @@ import Foundation
 class SplashScreenModel {
     
     // MARK: - Dependencies
-    private var router: SplashScreenRouter?
+    private let router: SplashScreenRouter
     
     // MARK: - Inits
     init(_ router: SplashScreenRouter) {
@@ -27,7 +27,7 @@ extension SplashScreenModel: SplashScreenInput {
     func viewWillAppear() {
         //FIXME: On real project handle Authorization and permission checks.
         DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-            self.router?.jumpToMainModule()
+            self.router.jumpToMainModule()
         }
     }
 }

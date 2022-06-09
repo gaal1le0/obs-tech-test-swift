@@ -54,7 +54,7 @@ extension MainViewController {
         errorView.translatesAutoresizingMaskIntoConstraints = false
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
-        loader.bind(.init(.black)) //TODO: Change for tokens
+        loader.bind(.init(.black))
         loader.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.delegate = self
@@ -115,7 +115,7 @@ extension MainViewController: MainViewOutput {
             self.loader.stop()
             self.tableView.isHidden = true
             self.errorView.isHidden = false
-            self.errorView.bind(.init(error, retryButtonText: "Retry ☺️"))
+            self.errorView.bind(.init(error, retryButtonText: "Try again"))
             self.errorView.retryButton.isUserInteractionEnabled = true
             
         case .data(let array):

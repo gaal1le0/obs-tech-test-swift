@@ -11,8 +11,9 @@ class DetailViewModel {
     
     // MARK: - Depedencies
     weak private var view: DetailViewOutput?
-    private var service: DetailViewDataProvider
-    private var attleteId: String
+    private let service: DetailViewDataProvider
+    private let attleteId: String
+    private let attleteFullName: String
     
     // MARK: - Properties
     private var state: DetailState = .loading {
@@ -22,10 +23,11 @@ class DetailViewModel {
     }
     
     // MARK: - Inits
-    init(_ view: DetailViewOutput, service: DetailViewDataProvider, attleteId: String) {
+    init(_ view: DetailViewOutput, service: DetailViewDataProvider, attleteId: String, attleteFullName: String) {
         self.view = view
         self.service = service
         self.attleteId = attleteId
+        self.attleteFullName = attleteFullName
     }
     
     deinit {
@@ -36,6 +38,10 @@ class DetailViewModel {
 
 extension DetailViewModel: DetailViewInput {
     func viewWillAppear() {
+        view?.configureNavigationBarTitle("\(self.attleteFullName) Details")
+    }
+    
+    func retryLoadingData() {
         
     }
 }

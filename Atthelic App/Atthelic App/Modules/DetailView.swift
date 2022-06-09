@@ -7,8 +7,13 @@
 
 import Foundation
 import UIKit
+import AppUtils
 
 class DetailView: UIViewController {
+    
+    // MARK: - Properties
+    private let loader = Molecules.Spinner
+    private let errorView = Molecules.Views.Error
     
     // MARK: - Dependencies
     var model: DetailViewInput?
@@ -33,18 +38,63 @@ class DetailView: UIViewController {
         model?.viewWillAppear()
     }
     
+    // MARK: - Methods
+    @objc
+    func retryLoadingData() {
+        model?.retryLoadingData()
+    }
+    
 }
 
 extension DetailView {
     
     func setupViews() {
+            
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
+        
+        loader.bind(.init(.black))
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(loader)
+        view.addSubview(errorView)
+        
+        NSLayoutConstraint.activate([
+            loader.widthAnchor.constraint(equalTo: view.widthAnchor),
+            loader.heightAnchor.constraint(equalTo: view.heightAnchor),
+            errorView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            errorView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+        ])
         
     }
     
 }
 
 extension DetailView: DetailViewOutput {
+    
+    func configureNavigationBarTitle(_ title: String) {
+        navigationController?.navigationBar.topItem?.title = title
+    }
+    
     func update(_ state: DetailState) {
-        #warning("Configure view depending on the state")
+        switch state {
+        case .loading:
+            self.loader.start()
+            self.errorView.isHidden = true
+            self.errorView.retryButton.isUserInteractionEnabled = false
+            
+        case .error(let error):
+            self.loader.stop()
+            self.errorView.isHidden = false
+            self.errorView.bind(.init(error, retryButtonText: "Try again"))
+            self.errorView.retryButton.isUserInteractionEnabled = true
+            
+        case .data:
+            self.loader.stop()
+            self.errorView.isHidden = true
+            self.errorView.retryButton.isUserInteractionEnabled = false
+
+            
+        }
     }
 }

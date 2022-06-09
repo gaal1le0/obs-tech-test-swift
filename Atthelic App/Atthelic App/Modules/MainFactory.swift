@@ -18,10 +18,10 @@ struct MainFactory {
         return view
     }
     
-    func createDetailScene(_ apiClient: APIClient, attleteId: String) -> DetailView {
+    func createDetailScene(_ apiClient: APIClient, attleteId: String, attleteFullName: String) -> DetailView {
         let view = DetailView()
         let service = DetailViewDataProvider(apiClient)
-        let model = DetailViewModel(view, service: service, attleteId: attleteId)
+        let model = DetailViewModel(view, service: service, attleteId: attleteId, attleteFullName: attleteFullName)
         view.model = model
         return view
     }

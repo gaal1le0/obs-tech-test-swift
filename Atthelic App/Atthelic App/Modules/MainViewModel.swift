@@ -11,8 +11,8 @@ class MainViewModel {
     
     // MARK: - Dependencies
     weak private var view: MainViewOutput?
-    private var router: MainViewRouter
-    private var service: MainViewDataProvider
+    private let router: MainViewRouter
+    private let service: MainViewDataProvider
     
     // MARK: - Properties
     private var state: MainViewState = .loading {
