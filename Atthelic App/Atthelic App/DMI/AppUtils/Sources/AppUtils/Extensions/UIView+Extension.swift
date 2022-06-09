@@ -27,8 +27,8 @@ extension UIView {
         layer.masksToBounds = true
     }
     
-    public func circular() {
-        layer.cornerRadius = frame.height / 2
+    public func circular(value: CGFloat = 2) {
+        layer.cornerRadius = frame.height / value
         layer.masksToBounds = true
     }
     

@@ -91,7 +91,7 @@ extension GameCell: UICollectionViewDataSource {
 
 extension GameCell: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width/4, height: 124)
+        CGSize(width: collectionView.frame.width/4, height: 118)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -160,13 +160,13 @@ extension GameCell {
         collectionView.isDirectionalLockEnabled = false
         collectionView.isScrollEnabled = true
         
-        separator.rounded()
+        separator.rounded(3)
         separator.backgroundColor = Tokens.Colors.Background.Primary
         
         gameYear.tintColor = .black
-        gameYear.font = .systemFont(ofSize: 20, weight: .thin)
+        gameYear.font = .systemFont(ofSize: 15, weight: .thin)
         gameTitle.tintColor = .black
-        gameTitle.font = .systemFont(ofSize: 20, weight: .regular)
+        gameTitle.font = .systemFont(ofSize: 18, weight: .regular)
         
         headerSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         headerSubviews.forEach { headerContainer.addArrangedSubview($0) }
@@ -177,8 +177,7 @@ extension GameCell {
         fill(container, edges: Tokens.Edges.Secondary)
         
         NSLayoutConstraint.activate([
-            headerContainer.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 2),
-            headerContainer.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -2),
+            headerContainer.widthAnchor.constraint(equalTo: container.safeAreaLayoutGuide.widthAnchor),
             separator.heightAnchor.constraint(equalToConstant: 4),
             separator.widthAnchor.constraint(equalTo: headerContainer.widthAnchor)
         ])

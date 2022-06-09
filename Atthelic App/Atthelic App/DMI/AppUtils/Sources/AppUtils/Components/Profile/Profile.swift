@@ -49,7 +49,7 @@ extension Profile {
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         allSubviews.forEach { container.addArrangedSubview($0) }
         
-        container.spacing = 18
+        container.spacing = 2
         fill(container)
         
         NSLayoutConstraint.activate([
