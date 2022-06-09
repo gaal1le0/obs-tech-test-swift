@@ -51,8 +51,8 @@ public class GameCell: UITableViewCell {
     
     // MARK: - Models
     public func bind(_ model: GameCellModel) {
-        gameTitle.text = model.gameName
-        gameYear.text = model.gameYear
+        gameTitle.text = model.header.gameName
+        gameYear.text = model.header.gameYear
         data = model.attletes
     }
     
@@ -97,6 +97,7 @@ extension GameCell {
      
         backgroundColor = .white
         rounded()
+        
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self

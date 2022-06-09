@@ -14,7 +14,7 @@ class CellTestViewController: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let dataset: [GameCellModel] = [
-        .init(gameName: "Olimpiadas", gameYear: "2022", attletes: [
+        .init(header: .init(gameName: "Olimpiadas", gameYear: "2022"), attletes: [
             .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
             .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
             .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
@@ -24,7 +24,7 @@ class CellTestViewController: UIViewController {
         ], callback: { index in
             print("Value selected \(index)")
         }),
-        .init(gameName: "Olimpiadas", gameYear: "2022", attletes: [
+        .init(header: .init(gameName: "Olimpiadas", gameYear: "2022"), attletes: [
             .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
             .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
             .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
