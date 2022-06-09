@@ -41,8 +41,7 @@ extension Profile {
     func setupViews() {
         
         profileImage.contentMode = .scaleToFill
-        profileImage.layer.cornerRadius = profileName.frame.width/2
-        profileImage.layer.masksToBounds = true
+        profileImage.circular()
         
         profileName.numberOfLines = 2
         profileName.textAlignment = .center
@@ -53,11 +52,10 @@ extension Profile {
         
         container.spacing = 18
         container.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(container)
+        
+        fill(container)
         
         NSLayoutConstraint.activate([
-            container.widthAnchor.constraint(equalTo: widthAnchor),
-            container.heightAnchor.constraint(equalTo: heightAnchor),
             profileImage.widthAnchor.constraint(equalToConstant: 67),
             profileName.widthAnchor.constraint(equalToConstant: 56)
         ])

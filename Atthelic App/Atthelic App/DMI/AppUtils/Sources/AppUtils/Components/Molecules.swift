@@ -21,6 +21,11 @@ public enum Molecules {
         public static var ProfileView: Profile {
             return Profile()
         }
+        
+        public static var Medal: MedalCounter {
+            return MedalCounter()
+        }
+        
     }
     
 }

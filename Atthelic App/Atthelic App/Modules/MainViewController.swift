@@ -61,13 +61,10 @@ extension MainViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .green
         
-        view.addSubview(loader)
         view.addSubview(errorView)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            loader.widthAnchor.constraint(equalTo: view.widthAnchor),
-            loader.heightAnchor.constraint(equalTo: view.heightAnchor),
             errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             tableView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),

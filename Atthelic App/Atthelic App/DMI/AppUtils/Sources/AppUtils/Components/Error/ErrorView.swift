@@ -41,7 +41,7 @@ extension ErrorView {
     func setupViews() {
         
         label.textColor = .black.withAlphaComponent(0.5)
-        label.font = UIFont(name: "Helvetica", size: 14.0)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .center
         label.numberOfLines = 0
         
@@ -54,12 +54,7 @@ extension ErrorView {
         
         container.spacing = 8
         container.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(container)
-        
-        NSLayoutConstraint.activate([
-            container.widthAnchor.constraint(equalTo: widthAnchor),
-            container.heightAnchor.constraint(equalTo: heightAnchor),
-        ])
+        fill(container)
         
     }
 }
