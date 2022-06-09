@@ -17,6 +17,8 @@ public enum Tokens {
         public enum Grayscale {
             public static let Primary = UIColor.secureNaming(secureName: "Grayscale.Primary")
             public static let Secondary = UIColor.secureNaming(secureName: "Grayscale.Secondary")
+            public static let Tertiary = UIColor.secureNaming(secureName: "Grayscale.Tertiary")
+            public static let Quaternary = UIColor.secureNaming(secureName: "Grayscale.Quaternary")
         }
         
     }

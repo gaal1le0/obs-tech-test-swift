@@ -48,7 +48,7 @@ extension MainViewController {
     
     func setupViews() {
         
-        view.backgroundColor = .red
+        view.backgroundColor = Tokens.Colors.Grayscale.Tertiary
         navigationController?.navigationBar.topItem?.title = "Olympic Athletes"
         
         errorView.translatesAutoresizingMaskIntoConstraints = false

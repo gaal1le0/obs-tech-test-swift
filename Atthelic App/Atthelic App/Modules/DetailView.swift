@@ -50,6 +50,7 @@ extension DetailView {
     
     func setupViews() {
             
+        view.backgroundColor = Tokens.Colors.Grayscale.Quaternary
         errorView.translatesAutoresizingMaskIntoConstraints = false
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
