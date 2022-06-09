@@ -17,16 +17,40 @@ public struct GameCellHeaderModel {
     }
 }
 
-public struct GameCellModel {
-    
-    let header: GameCellHeaderModel
+public struct GameCellStateDataModel {
     let attletes: [ProfileModel]
     let callback: (Int) -> Void
     
-    public init(header: GameCellHeaderModel, attletes: [ProfileModel], callback: @escaping (Int) -> Void) {
-        self.header = header
+    public init(attletes: [ProfileModel], callback: @escaping (Int) -> Void) {
         self.attletes = attletes
         self.callback = callback
+    }
+}
+
+public struct GameCellStateErrorModel {
+    let message: String
+    let tapOnRetry: () -> Void
+    
+    public init(message: String, tapOnRetry: @escaping () -> Void) {
+        self.message = message
+        self.tapOnRetry = tapOnRetry
+    }
+}
+
+public enum GameCellState {
+    case error(GameCellStateErrorModel)
+    case data(GameCellStateDataModel)
+    case loading
+}
+
+public struct GameCellModel {
+    
+    let header: GameCellHeaderModel
+    let state: GameCellState
+    
+    public init(header: GameCellHeaderModel, state: GameCellState = .loading) {
+        self.header = header
+        self.state = state
     }
     
 }

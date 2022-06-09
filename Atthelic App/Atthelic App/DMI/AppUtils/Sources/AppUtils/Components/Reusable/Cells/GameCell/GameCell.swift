@@ -12,13 +12,21 @@ public class GameCell: UITableViewCell {
     
     // MARK: - Properties
     public static let Identifier = "GameCell.Identifier.Cell"
-    private var data: [ProfileModel] = [] {
+    var state: GameCellState = .loading {
+        didSet {
+            configureView()
+        }
+    }
+    var data: [ProfileModel] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
-    
-    var callback: ((Int) -> Void)?
+
+    let errorView = Molecules.Views.Error
+    let loader = Molecules.Spinner
+    var tapOnRetry: (() -> Void)?
+    var tapOnItem: ((Int) -> Void)?
     let container = Atoms.StackViews.Vertical
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -36,7 +44,7 @@ public class GameCell: UITableViewCell {
     }()
     
     lazy var allSubviews: [UIView] = {
-        [headerContainer, separator, collectionView]
+        [headerContainer, separator]
     }()
     
     // MARK: - Inits
@@ -53,7 +61,12 @@ public class GameCell: UITableViewCell {
     public func bind(_ model: GameCellModel) {
         gameTitle.text = model.header.gameName
         gameYear.text = model.header.gameYear
-        data = model.attletes
+        state = model.state
+    }
+    
+    @objc
+    fileprivate func tapOnRetryButtonSelector() {
+        tapOnRetry?()
     }
     
 }
@@ -88,16 +101,57 @@ extension GameCell: UICollectionViewDelegateFlowLayout {
 
 extension GameCell: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        callback?(indexPath.row)
+        tapOnItem?(indexPath.row)
     }
 }
 
 extension GameCell {
+    func configureView() {
+        switch state {
+        case .loading:
+            errorView.isHidden = true
+            loader.isHidden = false
+            loader.start()
+            configureLastChildView(loader)
+            
+        case .error(let errorDTO):
+            errorView.isHidden = false
+            errorView.bind(.init(errorDTO.message, retryButtonText: "Try again"))
+            loader.isHidden = true
+            tapOnRetry = errorDTO.tapOnRetry
+            configureLastChildView(errorView)
+            
+        case .data(let stateData):
+            tapOnItem = stateData.callback
+            data = stateData.attletes
+            errorView.isHidden = true
+            loader.isHidden = true
+            configureLastChildView(collectionView)
+            
+        }
+    }
+    
+    func configureLastChildView(_ view: UIView) {
+        if let lastView = container.arrangedSubviews.last {
+            container.removeArrangedSubview(lastView)
+            container.addArrangedSubview(view)
+            NSLayoutConstraint.activate([
+                view.topAnchor.constraint(equalTo: separator.safeAreaLayoutGuide.bottomAnchor),
+                view.widthAnchor.constraint(equalTo: container.safeAreaLayoutGuide.widthAnchor),
+                view.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
+            ])
+        } else {
+            print(">>> Not child available")
+        }
+    }
+    
     func setupViews() {
      
         backgroundColor = .white
         rounded()
         
+        contentView.isUserInteractionEnabled = true
+        errorView.retryButton.addTarget(self, action: #selector(tapOnRetryButtonSelector), for: .touchUpInside)
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -128,9 +182,6 @@ extension GameCell {
             separator.heightAnchor.constraint(equalToConstant: 4),
             separator.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 10),
             separator.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -10),
-            collectionView.topAnchor.constraint(equalTo: separator.safeAreaLayoutGuide.bottomAnchor),
-            collectionView.widthAnchor.constraint(equalTo: container.safeAreaLayoutGuide.widthAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
         ])
         
     }

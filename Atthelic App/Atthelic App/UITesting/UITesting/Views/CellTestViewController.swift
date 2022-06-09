@@ -14,24 +14,23 @@ class CellTestViewController: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let dataset: [GameCellModel] = [
-        .init(header: .init(gameName: "Olimpiadas", gameYear: "2022"), attletes: [
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!)
-        ], callback: { index in
-            print("Value selected \(index)")
-        }),
-        .init(header: .init(gameName: "Olimpiadas", gameYear: "2022"), attletes: [
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
-            .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!)
-        ], callback: { index in
-            print("Value selected \(index)")
-        })
+        .init(header: .init(gameName: "Olympics", gameYear: "2022"), state: .error(
+            .init(message: "Example error view", tapOnRetry: {
+                print("Retry fetching attletes from Olympics")
+            })
+        )),
+        .init(header: .init(gameName: "Olympics 2", gameYear: "2025")),
+        .init(header: .init(gameName: "Olympics 3", gameYear: "2023"), state: .data(
+            .init(attletes: [
+                .init(fullName: "Manolo Escobar", profileImage: UIImage(named: "exampleProfile")!),
+                .init(fullName: "Manolo Perex", profileImage: UIImage(named: "exampleProfile")!),
+                .init(fullName: "Manolo Gutierrez", profileImage: UIImage(named: "exampleProfile")!),
+                .init(fullName: "Manolo Mong", profileImage: UIImage(named: "exampleProfile")!),
+                .init(fullName: "Manolo Sevillano", profileImage: UIImage(named: "exampleProfile")!)
+            ], callback: { index in
+                print("Selected value \(index)")
+            })
+        ))
     ]
     
     // MARK: - Inits
@@ -78,7 +77,7 @@ extension CellTestViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Molecules.Cells.Game
-        cell.bind(dataset[indexPath.row])
+        cell.bind(dataset[indexPath.section])
         return cell
     }
 }
