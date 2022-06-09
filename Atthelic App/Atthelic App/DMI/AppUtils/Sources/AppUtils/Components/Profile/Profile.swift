@@ -14,6 +14,7 @@ public class Profile: UIView {
     let container = Atoms.StackViews.Vertical
     let profileName = UILabel(frame: .zero)
     let profileImage = UIImageView(frame: .zero)
+    var tapOnImageCb: (() -> Void)?
     
     lazy var allSubviews: [UIView] = {
         return [profileImage, profileName]
@@ -30,9 +31,15 @@ public class Profile: UIView {
     }
     
     // MARK: - Methods
-    func bind(_ model: ProfileModel) {
+    public func bind(_ model: ProfileModel) {
         profileImage.image = model.profileImage
         profileName.text = model.fullName
+        tapOnImageCb = model.onTouchUpInside
+    }
+    
+    @objc
+    func tapOnImage() {
+        tapOnImageCb?()
     }
     
 }
@@ -42,10 +49,14 @@ extension Profile {
         
         profileImage.contentMode = .scaleToFill
         profileImage.circular()
+        profileImage.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnImage))
+        profileImage.addGestureRecognizer(tapGesture)
         
         profileName.numberOfLines = 2
         profileName.textAlignment = .center
-        profileName.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        profileName.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         allSubviews.forEach { container.addArrangedSubview($0) }

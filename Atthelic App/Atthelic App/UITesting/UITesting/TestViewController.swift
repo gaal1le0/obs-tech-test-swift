@@ -19,10 +19,11 @@ class TestViewController: UIViewController {
     // MARK: Testing properties
     private let mainStackView = Atoms.StackViews.Vertical
     private let medals = [MedalCounter.GoldValue, MedalCounter.SilverValue, MedalCounter.BronzeValue]
+    private let profileView = Molecules.Views.ProfileView
     private let medalStackView = Atoms.StackViews.Horizontal
 
     lazy var allSubviews: [UIView] = {
-        return [medalStackView]
+        return [medalStackView, profileView]
     }()
         
     // MARK: - Inits
@@ -53,9 +54,14 @@ class TestViewController: UIViewController {
 extension TestViewController {
     func setupViews() {
         
-        view.backgroundColor = .red
-        mainStackView.backgroundColor = .lightGray
+        view.backgroundColor = .white
+        mainStackView.backgroundColor = .white
         navigationItem.title = "Testing View"
+        
+        profileView.bind(.init(fullName: "Manolo Picapiedras", profileImage: UIImage(named: "exampleProfile")!, onTouchUpInside: {
+            print("Pls move to detail view ;)")
+        }))
+        profileView.translatesAutoresizingMaskIntoConstraints = false
         
         let medals = prepareMedals()
         medals.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
@@ -66,7 +72,7 @@ extension TestViewController {
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         allSubviews.forEach { mainStackView.addArrangedSubview($0) }
 
-        mainStackView.spacing = 10
+        mainStackView.spacing = 20
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mainStackView)
 

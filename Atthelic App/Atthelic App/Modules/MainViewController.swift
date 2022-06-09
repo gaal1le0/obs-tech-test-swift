@@ -54,7 +54,7 @@ extension MainViewController {
         errorView.translatesAutoresizingMaskIntoConstraints = false
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
-        loader.bind(.init(.black))        
+        loader.bind(.init(.black, format: .medium))        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .green
