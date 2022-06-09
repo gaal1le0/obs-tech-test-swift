@@ -1,20 +1,22 @@
 //
-//  MainViewController.swift
+//  DetailView.swift
 //  Atthelic App
 //
 //  Created by Emanuel Martinez on 7/6/22.
 //
 
+import Foundation
 import UIKit
 import AppUtils
 
-class MainViewController: UIViewController {
+class DetailView: UIViewController {
     
-    // MARK: - Dependencies
-    var model: MainViewInput?
+    // MARK: - Properties
     private let loader = Molecules.Spinner
     private let errorView = Molecules.Views.Error
-    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    
+    // MARK: - Dependencies
+    var model: DetailViewInput?
     
     // MARK: - Inits
     init() {
@@ -25,7 +27,7 @@ class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - View Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -35,7 +37,7 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         model?.viewWillAppear()
     }
-
+    
     // MARK: - Methods
     @objc
     func retryLoadingData() {
@@ -44,91 +46,55 @@ class MainViewController: UIViewController {
     
 }
 
-extension MainViewController {
+extension DetailView {
     
     func setupViews() {
-        
-        view.backgroundColor = .red
-        navigationController?.navigationBar.topItem?.title = "Olympic Athletes"
-        
+            
         errorView.translatesAutoresizingMaskIntoConstraints = false
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
         loader.bind(.init(.black))
         loader.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .green
-        
         view.addSubview(loader)
         view.addSubview(errorView)
-        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             loader.widthAnchor.constraint(equalTo: view.widthAnchor),
             loader.heightAnchor.constraint(equalTo: view.heightAnchor),
             errorView.heightAnchor.constraint(equalTo: view.heightAnchor),
             errorView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
         
     }
     
 }
 
-extension MainViewController: UITableViewDataSource {
+extension DetailView: DetailViewOutput {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    func configureNavigationBarTitle(_ title: String) {
+        navigationController?.navigationBar.topItem?.title = title
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-}
-
-extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-}
-
-extension MainViewController: MainViewOutput {
-    
-    func update(_ state: MainViewState) {
+    func update(_ state: DetailState) {
         switch state {
         case .loading:
             self.loader.start()
-            self.tableView.isHidden = true
             self.errorView.isHidden = true
             self.errorView.retryButton.isUserInteractionEnabled = false
             
         case .error(let error):
             self.loader.stop()
-            self.tableView.isHidden = true
             self.errorView.isHidden = false
             self.errorView.bind(.init(error, retryButtonText: "Try again"))
             self.errorView.retryButton.isUserInteractionEnabled = true
             
-        case .data(let array):
+        case .data:
             self.loader.stop()
             self.errorView.isHidden = true
-            self.tableView.isHidden = false
             self.errorView.retryButton.isUserInteractionEnabled = false
+
             
-            print("heyyyyyy")
-            print(array)
-            print("Adiosss")
         }
     }
-    
 }
-

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Networking
+import AppUtils
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,11 +19,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
+    
+        UIFont.overrideDefaultTypography()
         
         let factory = RootFactory()
-        let navigationController = UINavigationController()
+        guard let apiServiceBaseURL = URL(string: Constants.kAPI.kBaseURL) else { fatalError("API Base Service URL is not available, Have you included it into Constants?") }
+        
+        let apiService = AtthelicsAPIClient(apiServiceBaseURL)
+        
+        let mainFactory = MainFactory()
+        let mainCoordinator = MainCoordinator(mainFactory, navigationController: UINavigationController(), apiClient: apiService)
+        
         guard let window = self.window else { fatalError("Window was not catched up") }
-        let coordinator = RootCoordinator(window, navigationController: navigationController, factory: factory)
+        let coordinator = RootCoordinator(window, factory: factory, mainCoordinator: mainCoordinator)
         coordinator.start()
     }
 

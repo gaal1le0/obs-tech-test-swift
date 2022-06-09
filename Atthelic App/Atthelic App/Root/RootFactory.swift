@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import Networking
 
 struct RootFactory {
     
-    func createMainModule(_ router: MainViewRouter) -> MainViewController {
-        let view = MainViewController()
-        let model = MainViewModel(view, router: router)
+    func createSplashModule(_ router: SplashScreenRouter) -> SplashScreenView {
+        let view = SplashScreenView()
+        let model = SplashScreenModel(router)
         view.model = model
         return view
     }

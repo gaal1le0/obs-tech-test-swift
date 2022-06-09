@@ -7,32 +7,40 @@
 
 import Foundation
 import UIKit
+import Networking
 
-class RootCoordinator {
+class RootCoordinator: CoordinatorStuff {
     
     // MARK: - Dependencies
     let window: UIWindow
-    let navigationController: UINavigationController
     let factory: RootFactory
+    let mainCoordinator: MainCoordinator
+    let container: RootContainer
     
     // MARK: - Inits
-    init(_ window: UIWindow, navigationController: UINavigationController, factory: RootFactory) {
+    init(_ window: UIWindow, factory: RootFactory, mainCoordinator: MainCoordinator, container: RootContainer = RootContainer()) {
         self.window = window
-        self.navigationController = navigationController
         self.factory = factory
+        self.mainCoordinator = mainCoordinator
+        self.container = container
     }
     
     // MARK: - Methods
     func start() {
-        let scene = factory.createMainModule(self)
-        navigationController.viewControllers = [scene]
-        window.rootViewController = navigationController
+        let scene = factory.createSplashModule(self)
+        window.rootViewController = container
         window.makeKeyAndVisible()
+        container.activate(scene)
     }
     
 }
 
 // MARK: - Implementing Navigation Stuff
-extension RootCoordinator: MainViewRouter {
+extension RootCoordinator: SplashScreenRouter {
+    
+    func jumpToMainModule() {
+        mainCoordinator.start()
+        container.activate(mainCoordinator.navigationController)
+    }
     
 }
