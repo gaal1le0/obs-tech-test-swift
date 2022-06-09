@@ -12,6 +12,10 @@ public enum Tokens {
     
     public enum Colors {
         
+        public enum Grayscale {
+            public static let Primary = UIColor.secureNaming(secureName: "Grayscale.Primary")
+            public static let Secondary = UIColor.secureNaming(secureName: "Grayscale.Secondary")
+        }
         
     }
     

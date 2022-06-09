@@ -9,10 +9,6 @@ import Foundation
 
 protocol CoordinatorStuff {
     associatedtype A
-    associatedtype B
-    
     var factory: A { get }
-    var navigationController: B { get }
-
     func start()
 }

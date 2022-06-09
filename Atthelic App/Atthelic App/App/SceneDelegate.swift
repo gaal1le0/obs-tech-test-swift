@@ -23,13 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let apiServiceBaseURL = URL(string: Constants.kAPI.kBaseURL) else { fatalError("API Base Service URL is not available, Have you included it into Constants?") }
         
         let apiService = AtthelicsAPIClient(apiServiceBaseURL)
-        let navigationController = UINavigationController()
         
         let mainFactory = MainFactory()
         let mainCoordinator = MainCoordinator(mainFactory, navigationController: UINavigationController(), apiClient: apiService)
         
         guard let window = self.window else { fatalError("Window was not catched up") }
-        let coordinator = RootCoordinator(window, navigationController: navigationController, factory: factory, mainCoordinator: mainCoordinator)
+        let coordinator = RootCoordinator(window, factory: factory, mainCoordinator: mainCoordinator)
         coordinator.start()
     }
 
