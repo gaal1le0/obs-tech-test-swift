@@ -56,7 +56,7 @@ extension Profile {
         
         profileName.numberOfLines = 2
         profileName.textAlignment = .center
-        profileName.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        profileName.font = .systemFont(ofSize: 14, weight: .semibold)
         
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         allSubviews.forEach { container.addArrangedSubview($0) }

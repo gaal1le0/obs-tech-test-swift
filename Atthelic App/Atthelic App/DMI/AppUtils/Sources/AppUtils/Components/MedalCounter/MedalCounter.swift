@@ -41,7 +41,7 @@ extension MedalCounter {
     func setupViews() {
         
         counter.textAlignment = .center
-        counter.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        counter.font = .systemFont(ofSize: 12, weight: .bold)
         counter.tintColor = .black
         
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E629200428525B48001728A8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629200328525B48001728A8 /* RootViewController.swift */; };
 		E6E23B9E28520D3200FA97C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E23B9D28520D3200FA97C1 /* AppDelegate.swift */; };
 		E6E23BA028520D3200FA97C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E23B9F28520D3200FA97C1 /* SceneDelegate.swift */; };
 		E6E23BA228520D3200FA97C1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E23BA128520D3200FA97C1 /* TestViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E629200328525B48001728A8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		E6E23B9A28520D3200FA97C1 /* UITesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E23B9D28520D3200FA97C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6E23B9F28520D3200FA97C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E629200528525B89001728A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E6E23BA128520D3200FA97C1 /* TestViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E6E23B9128520D3100FA97C1 = {
 			isa = PBXGroup;
 			children = (
@@ -59,7 +69,8 @@
 			children = (
 				E6E23B9D28520D3200FA97C1 /* AppDelegate.swift */,
 				E6E23B9F28520D3200FA97C1 /* SceneDelegate.swift */,
-				E6E23BA128520D3200FA97C1 /* TestViewController.swift */,
+				E629200328525B48001728A8 /* RootViewController.swift */,
+				E629200528525B89001728A8 /* Views */,
 				E6E23BA628520D3500FA97C1 /* Assets.xcassets */,
 				E6E23BA828520D3500FA97C1 /* LaunchScreen.storyboard */,
 				E6E23BAB28520D3500FA97C1 /* Info.plist */,
@@ -149,6 +160,7 @@
 			files = (
 				E6E23BA228520D3200FA97C1 /* TestViewController.swift in Sources */,
 				E6E23B9E28520D3200FA97C1 /* AppDelegate.swift in Sources */,
+				E629200428525B48001728A8 /* RootViewController.swift in Sources */,
 				E6E23BA028520D3200FA97C1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

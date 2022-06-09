@@ -41,7 +41,7 @@ extension ErrorView {
     func setupViews() {
         
         label.textColor = .black.withAlphaComponent(0.5)
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .center
         label.numberOfLines = 0
         
