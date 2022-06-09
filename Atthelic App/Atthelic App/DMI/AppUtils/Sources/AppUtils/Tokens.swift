@@ -18,7 +18,7 @@ public enum Tokens {
     
     public enum Edges {
         public static let Primary = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        public static let Secondary = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
+        public static let Secondary = UIEdgeInsets(top: 12, left: 14, bottom: 12, right: 14)
     }
     
     public enum Colors {

@@ -126,20 +126,33 @@ extension GameCell {
             data = stateData.attletes
             errorView.isHidden = true
             loader.isHidden = true
-            configureLastChildView(collectionView)
+            configureLastChildView(collectionView, isCV: true)
             
         }
     }
     
-    func configureLastChildView(_ view: UIView) {
+    func configureLastChildView(_ view: UIView, isCV: Bool = false) {
         if let lastView = container.arrangedSubviews.last {
             container.removeArrangedSubview(lastView)
             container.addArrangedSubview(view)
             NSLayoutConstraint.activate([
                 view.topAnchor.constraint(equalTo: separator.safeAreaLayoutGuide.bottomAnchor),
-                view.widthAnchor.constraint(equalTo: container.safeAreaLayoutGuide.widthAnchor),
                 view.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
             ])
+            
+            if !isCV {
+                NSLayoutConstraint.activate([
+                    view.widthAnchor.constraint(equalTo: container.safeAreaLayoutGuide.widthAnchor),
+                ])
+            } else {
+                NSLayoutConstraint.activate([
+                    view.leadingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.leadingAnchor),
+                    view.trailingAnchor.constraint(equalTo: trailingAnchor),
+                    headerContainer.leadingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.leadingAnchor)
+                ])
+            }
+            
+           
         } else {
             print(">>> Not child available")
         }
@@ -177,6 +190,7 @@ extension GameCell {
         fill(container, edges: Tokens.Edges.Secondary)
         
         NSLayoutConstraint.activate([
+            gameYear.centerYAnchor.constraint(equalTo: headerContainer.centerYAnchor),
             headerContainer.widthAnchor.constraint(equalTo: container.safeAreaLayoutGuide.widthAnchor),
             separator.heightAnchor.constraint(equalToConstant: 4),
             separator.widthAnchor.constraint(equalTo: headerContainer.widthAnchor)
