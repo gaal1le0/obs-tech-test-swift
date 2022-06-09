@@ -23,4 +23,17 @@ extension NSMutableAttributedString {
         }
     }
     
+    /// - IMPORTANT: If no text is sent, style will be aplied around full text
+    public func setFontFamilyForText(_ textToFind: String?, with font: UIFont) {
+        let range:NSRange?
+        if let text = textToFind{
+            range = self.mutableString.range(of: text, options: .caseInsensitive)
+        }else{
+            range = NSMakeRange(0, self.length)
+        }
+        if range!.location != NSNotFound {
+            addAttribute(NSAttributedString.Key.font, value: font, range: range!)
+        }
+    }
+    
 }

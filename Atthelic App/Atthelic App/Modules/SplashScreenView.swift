@@ -49,13 +49,14 @@ extension SplashScreenView {
         
         let title = NSMutableAttributedString(string: "PARIS 2024")
         title.setColorForText("PARIS", with: Tokens.Colors.Grayscale.Primary)
+        title.setFontFamilyForText("PARIS", with: .systemFont(ofSize: 20.0, weight: .bold))
         title.setColorForText("2024", with: Tokens.Colors.Grayscale.Secondary)
-        //TODO: Change size and font
+        title.setFontFamilyForText("2024", with: .systemFont(ofSize: 20.0, weight: .thin))
         
         titleLogo.attributedText = title
         titleLogo.textAlignment = .center
+        
         titleLogo.translatesAutoresizingMaskIntoConstraints = false
-        titleLogo.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
         logo.translatesAutoresizingMaskIntoConstraints = false
 
         view.addSubview(logo)
