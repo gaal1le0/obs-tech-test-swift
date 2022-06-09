@@ -99,7 +99,10 @@ class MainViewModel {
 
 extension MainViewModel: MainViewInput {
     func viewWillAppear() {
-        getGroupData()
+//        getGroupData()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.state = .error("Example")
+        }
     }
     
     func retryLoadingData() {

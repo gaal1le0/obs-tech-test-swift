@@ -1,22 +1,22 @@
 //
-//  ErrorView.swift
+//  Profile.swift
 //  
 //
-//  Created by Emanuel Martinez on 8/6/22.
+//  Created by Emanuel Martinez on 9/6/22.
 //
 
 import Foundation
 import UIKit
 
-public class ErrorView: UIView {
+public class Profile: UIView {
     
     // MARK: - Properties
     let container = Atoms.StackViews.Vertical
-    let label = UILabel(frame: .zero)
-    public let retryButton = UIButton(frame: .zero)
+    let profileName = UILabel(frame: .zero)
+    let profileImage = UIImageView(frame: .zero)
     
     lazy var allSubviews: [UIView] = {
-        return [label, retryButton]
+        return [profileImage, profileName]
     }()
     
     // MARK: - Inits
@@ -30,35 +30,36 @@ public class ErrorView: UIView {
     }
     
     // MARK: - Methods
-    public func bind(_ model: ErrorViewModel) {
-        label.text = model.message
-        retryButton.setTitle(model.retryButtonText, for: .normal)
+    func bind(_ model: ProfileModel) {
+        profileImage.image = model.profileImage
+        profileName.text = model.fullName
     }
     
 }
 
-extension ErrorView {
+extension Profile {
     func setupViews() {
         
-        label.textColor = .black.withAlphaComponent(0.5)
-        label.font = UIFont(name: "Helvetica", size: 14.0)
-        label.textAlignment = .center
-        label.numberOfLines = 0
+        profileImage.contentMode = .scaleToFill
+        profileImage.layer.cornerRadius = profileName.frame.width/2
+        profileImage.layer.masksToBounds = true
         
-        retryButton.backgroundColor = .clear
-        retryButton.setTitleColor(.black, for: .normal)
-        retryButton.titleLabel?.font = .systemFont(ofSize: 9)
+        profileName.numberOfLines = 2
+        profileName.textAlignment = .center
+        profileName.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         allSubviews.forEach { container.addArrangedSubview($0) }
         
-        container.spacing = 8
+        container.spacing = 18
         container.translatesAutoresizingMaskIntoConstraints = false
         addSubview(container)
         
         NSLayoutConstraint.activate([
             container.widthAnchor.constraint(equalTo: widthAnchor),
             container.heightAnchor.constraint(equalTo: heightAnchor),
+            profileImage.widthAnchor.constraint(equalToConstant: 67),
+            profileName.widthAnchor.constraint(equalToConstant: 56)
         ])
         
     }

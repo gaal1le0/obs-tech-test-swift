@@ -17,6 +17,10 @@ public enum Molecules {
         public static var Error: ErrorView {
             return ErrorView()
         }
+        
+        public static var ProfileView: Profile {
+            return Profile()
+        }
     }
     
 }

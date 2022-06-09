@@ -68,11 +68,10 @@ extension MainViewController {
         NSLayoutConstraint.activate([
             loader.widthAnchor.constraint(equalTo: view.widthAnchor),
             loader.heightAnchor.constraint(equalTo: view.heightAnchor),
-            errorView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            errorView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            tableView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),
             tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
         
     }
@@ -124,9 +123,7 @@ extension MainViewController: MainViewOutput {
             self.tableView.isHidden = false
             self.errorView.retryButton.isUserInteractionEnabled = false
             
-            print("heyyyyyy")
             print(array)
-            print("Adiosss")
         }
     }
     
