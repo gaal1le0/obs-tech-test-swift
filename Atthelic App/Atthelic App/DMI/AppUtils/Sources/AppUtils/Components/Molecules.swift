@@ -28,4 +28,14 @@ public enum Molecules {
         
     }
     
+    public enum Cells {
+        public static var Game: GameCell {
+            return GameCell()
+        }
+        
+        public static var Attlete: AttleteCell {
+            return AttleteCell()
+        }
+    }
+    
 }

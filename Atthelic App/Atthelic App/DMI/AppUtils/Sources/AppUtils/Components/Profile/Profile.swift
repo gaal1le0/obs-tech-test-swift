@@ -47,7 +47,7 @@ public class Profile: UIView {
 extension Profile {
     func setupViews() {
         
-        profileImage.contentMode = .scaleToFill
+        profileImage.contentMode = .scaleAspectFit
         profileImage.circular()
         profileImage.isUserInteractionEnabled = true
         

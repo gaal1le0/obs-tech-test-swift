@@ -54,7 +54,7 @@ class TestViewController: UIViewController {
 extension TestViewController {
     func setupViews() {
         
-        view.backgroundColor = .white
+        view.backgroundColor = Tokens.Colors.Grayscale.Quaternary
         mainStackView.backgroundColor = .white
         navigationItem.title = "Testing Base Components"
         

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E629200428525B48001728A8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629200328525B48001728A8 /* RootViewController.swift */; };
+		E629200728525E5A001728A8 /* CellTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629200628525E59001728A8 /* CellTestViewController.swift */; };
 		E6E23B9E28520D3200FA97C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E23B9D28520D3200FA97C1 /* AppDelegate.swift */; };
 		E6E23BA028520D3200FA97C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E23B9F28520D3200FA97C1 /* SceneDelegate.swift */; };
 		E6E23BA228520D3200FA97C1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E23BA128520D3200FA97C1 /* TestViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		E629200328525B48001728A8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E629200628525E59001728A8 /* CellTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTestViewController.swift; sourceTree = "<group>"; };
 		E6E23B9A28520D3200FA97C1 /* UITesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E23B9D28520D3200FA97C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6E23B9F28520D3200FA97C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				E6E23BA128520D3200FA97C1 /* TestViewController.swift */,
+				E629200628525E59001728A8 /* CellTestViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E629200728525E5A001728A8 /* CellTestViewController.swift in Sources */,
 				E6E23BA228520D3200FA97C1 /* TestViewController.swift in Sources */,
 				E6E23B9E28520D3200FA97C1 /* AppDelegate.swift in Sources */,
 				E629200428525B48001728A8 /* RootViewController.swift in Sources */,

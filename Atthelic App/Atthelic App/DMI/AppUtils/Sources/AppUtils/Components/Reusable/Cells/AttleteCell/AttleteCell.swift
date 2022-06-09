@@ -11,12 +11,12 @@ import UIKit
 public class AttleteCell: UICollectionViewCell {
     
     // MARK: - Properties
-    static let Identifier = "AttleteCell.Identifier.Cell"
-    let view = AttleteCollectionViewView()
+    public static let Identifier = "AttleteCell.Identifier.Cell"
+    let view = Molecules.Views.ProfileView
     
     // MARK: - Inits
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupViews()
     }
     

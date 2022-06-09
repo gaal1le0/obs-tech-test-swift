@@ -14,7 +14,8 @@ class RootViewController: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView(frame: .zero)
     private let vcs: [(title: String, view: UIViewController)] = [
-        (title: "Example base components", TestViewController())
+        (title: "Example base components", TestViewController()),
+        (title: "Example Cell Views", CellTestViewController())
     ]
     
     // MARK: - Inits

@@ -11,7 +11,7 @@ import UIKit
 public class GameCell: UITableViewCell {
     
     // MARK: - Properties
-    static let Identifier = "GameCell.Identifier.Cell"
+    public static let Identifier = "GameCell.Identifier.Cell"
     private var data: [ProfileModel] = [] {
         didSet {
             collectionView.reloadData()
@@ -19,7 +19,13 @@ public class GameCell: UITableViewCell {
     }
     
     let container = Atoms.StackViews.Vertical
-    let collectionView = UICollectionView(frame: .zero)
+    fileprivate let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(AttleteCell.self, forCellWithReuseIdentifier: AttleteCell.Identifier)
+        return cv
+    }()
     let separator = UIView(frame: .zero)
     let headerContainer = Atoms.StackViews.Horizontal
     let gameTitle = UILabel(frame: .zero)
@@ -53,44 +59,68 @@ public class GameCell: UITableViewCell {
 
 extension GameCell: UICollectionViewDataSource {
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        1
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        data.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = AttleteCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttleteCell.Identifier, for: indexPath) as? AttleteCell else {
+            fatalError("Have you registered the cell?")
+        }
         cell.bind(data[indexPath.item])
         return cell
+    }
+}
+
+extension GameCell: UICollectionViewDelegateFlowLayout {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.width/4, height: 124)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return Tokens.Edges.Primary
     }
 }
 
 extension GameCell {
     func setupViews() {
      
-        collectionView.register(AttleteCell.self, forCellWithReuseIdentifier: AttleteCell.Identifier)
+        backgroundColor = .white
+        rounded()
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.isPagingEnabled = true
+        
         separator.rounded()
         separator.backgroundColor = Tokens.Colors.Background.Primary
-        separator.heightAnchor.constraint(equalToConstant: 4).isActive = true
-            
+        
         gameYear.tintColor = .black
         gameYear.font = .systemFont(ofSize: 20, weight: .thin)
-        
         gameTitle.tintColor = .black
         gameTitle.font = .systemFont(ofSize: 20, weight: .regular)
         
         headerSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         headerSubviews.forEach { headerContainer.addArrangedSubview($0) }
-        
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         allSubviews.forEach { container.addArrangedSubview($0) }
         
         container.spacing = 8
-        fill(container)
+        fill(container, edges: Tokens.Edges.Secondary)
+        
+        NSLayoutConstraint.activate([
+            headerContainer.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 2),
+            headerContainer.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -2),
+            separator.heightAnchor.constraint(equalToConstant: 4),
+            separator.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 10),
+            separator.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -10),
+            collectionView.topAnchor.constraint(equalTo: separator.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.widthAnchor.constraint(equalTo: container.safeAreaLayoutGuide.widthAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
+        ])
         
     }
 }
