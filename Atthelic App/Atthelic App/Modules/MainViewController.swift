@@ -61,6 +61,7 @@ extension MainViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .green
         
+        view.fill(loader)
         view.addSubview(errorView)
         view.addSubview(tableView)
         

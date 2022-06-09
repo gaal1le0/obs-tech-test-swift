@@ -66,7 +66,7 @@ extension SplashScreenView {
         
         container.spacing = 12
         container.translatesAutoresizingMaskIntoConstraints = false
-        view.fill(container)
+        view.addSubview(container)
         
         NSLayoutConstraint.activate([
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
