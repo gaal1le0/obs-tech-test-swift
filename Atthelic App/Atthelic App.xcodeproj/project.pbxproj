@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E629200A28531653001728A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E629200828531653001728A8 /* Assets.xcassets */; };
+		E63EDE6D285355EC003E1D17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63EDE6C285355EC003E1D17 /* Assets.xcassets */; };
 		E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A2284F8E0700E69329 /* AppDelegate.swift */; };
 		E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A4284F8E0700E69329 /* SceneDelegate.swift */; };
 		E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A6284F8E0700E69329 /* MainViewController.swift */; };
@@ -69,7 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E629200828531653001728A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../Documents/Assets.xcassets; sourceTree = "<group>"; };
+		E63EDE6C285355EC003E1D17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E657799F284F8E0700E69329 /* Atthelic App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Atthelic App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65779A2284F8E0700E69329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E65779A4284F8E0700E69329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 				E672AADD2851DF21007DD4E6 /* Roboto-Italic.ttf */,
 				E672AADE2851DF21007DD4E6 /* Roboto-Regular.ttf */,
 				E672AADF2851DF21007DD4E6 /* Roboto-Thin.ttf */,
-				E629200828531653001728A8 /* Assets.xcassets */,
+				E63EDE6C285355EC003E1D17 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -449,8 +449,8 @@
 				E65779AF284F8E0A00E69329 /* LaunchScreen.storyboard in Resources */,
 				E672AAE32851DF79007DD4E6 /* Roboto-Italic.ttf in Resources */,
 				E672AAE22851DF79007DD4E6 /* Roboto-Bold.ttf in Resources */,
-				E629200A28531653001728A8 /* Assets.xcassets in Resources */,
 				E672AAE12851DF79007DD4E6 /* Roboto-Regular.ttf in Resources */,
+				E63EDE6D285355EC003E1D17 /* Assets.xcassets in Resources */,
 				E672AAE02851DF79007DD4E6 /* Roboto-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
