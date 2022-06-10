@@ -10,7 +10,7 @@ import AppUtils
 
 enum DetailStateType {
     case basic(BasicCellModel)
-    case medals //TODO: Pending
+    case medals(MedalsCellModel)
     case text //TODO: Pending
 }
 

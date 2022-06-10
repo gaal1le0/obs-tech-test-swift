@@ -11,7 +11,7 @@ import AppUtils
 
 enum DetailStateType {
     case basic(BasicCellModel)
-    case medals //TODO: Pending
+    case medals(MedalsCellModel)
     case text //TODO: Pending
 }
 
@@ -24,6 +24,10 @@ class DetailCellViewController: UIViewController {
         .basic(.init(title: "Date of Birth", subtitle: "2002")),
         .basic(.init(title: "Weight", subtitle: "100 kg")),
         .basic(.init(title: "Height", subtitle: "120 cm")),
+        .medals(.init(title: "Medals", score: .init(gold: 10, silver: 0, bronze: 1))),
+        .medals(.init(title: "Medals", score: .init(gold: 0, silver: 0, bronze: 0))),
+        .medals(.init(title: "Medals", score: .init(gold: 0, silver: 0, bronze: 1))),
+        .medals(.init(title: "Medals", score: .init(gold: 10, silver: 10, bronze: 1)))
     ]
     
     // MARK: - Inits
@@ -57,8 +61,10 @@ extension DetailCellViewController: UITableViewDataSource {
             let cell = Molecules.Cells.Basic
             cell.bind(model)
             return cell
-        case .medals:
-            return UITableViewCell()
+        case .medals(let model):
+            let cell = Molecules.Cells.Medal
+            cell.bind(model)
+            return cell
         case .text:
             return UITableViewCell()
         }
@@ -76,8 +82,8 @@ extension DetailCellViewController {
         tableView.allowsSelection = false
         tableView.dataSource = self
         tableView.separatorColor = .clear
-        tableView.rowHeight = 40
-        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = 50
+        tableView.estimatedRowHeight = 50
         tableView.register(BasicCell.self, forCellReuseIdentifier: BasicCell.Identifier)
         
         view.fill(tableView)

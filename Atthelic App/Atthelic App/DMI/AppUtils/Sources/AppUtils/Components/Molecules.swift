@@ -40,6 +40,10 @@ public enum Molecules {
         public static var Basic: BasicCell {
             return BasicCell()
         }
+        
+        public static var Medal: MedalsCell {
+            return MedalsCell()
+        }
     }
     
 }
