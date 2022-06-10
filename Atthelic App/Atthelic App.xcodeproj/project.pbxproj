@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E629200A28531653001728A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E629200828531653001728A8 /* Assets.xcassets */; };
 		E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A2284F8E0700E69329 /* AppDelegate.swift */; };
 		E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A4284F8E0700E69329 /* SceneDelegate.swift */; };
 		E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A6284F8E0700E69329 /* MainViewController.swift */; };
-		E65779AC284F8E0A00E69329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E65779AB284F8E0A00E69329 /* Assets.xcassets */; };
 		E65779AF284F8E0A00E69329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65779AD284F8E0A00E69329 /* LaunchScreen.storyboard */; };
 		E65779BA284F8E0B00E69329 /* Atthelic_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779B9284F8E0B00E69329 /* Atthelic_AppTests.swift */; };
 		E65779C4284F8E0B00E69329 /* Atthelic_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779C3284F8E0B00E69329 /* Atthelic_AppUITests.swift */; };
@@ -69,11 +69,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E629200828531653001728A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../Documents/Assets.xcassets; sourceTree = "<group>"; };
 		E657799F284F8E0700E69329 /* Atthelic App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Atthelic App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65779A2284F8E0700E69329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E65779A4284F8E0700E69329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E65779A6284F8E0700E69329 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		E65779AB284F8E0A00E69329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E65779AE284F8E0A00E69329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E65779B0284F8E0A00E69329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E65779B5284F8E0B00E69329 /* Atthelic AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Atthelic AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,7 +219,7 @@
 				E672AADD2851DF21007DD4E6 /* Roboto-Italic.ttf */,
 				E672AADE2851DF21007DD4E6 /* Roboto-Regular.ttf */,
 				E672AADF2851DF21007DD4E6 /* Roboto-Thin.ttf */,
-				E65779AB284F8E0A00E69329 /* Assets.xcassets */,
+				E629200828531653001728A8 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -448,8 +448,8 @@
 			files = (
 				E65779AF284F8E0A00E69329 /* LaunchScreen.storyboard in Resources */,
 				E672AAE32851DF79007DD4E6 /* Roboto-Italic.ttf in Resources */,
-				E65779AC284F8E0A00E69329 /* Assets.xcassets in Resources */,
 				E672AAE22851DF79007DD4E6 /* Roboto-Bold.ttf in Resources */,
+				E629200A28531653001728A8 /* Assets.xcassets in Resources */,
 				E672AAE12851DF79007DD4E6 /* Roboto-Regular.ttf in Resources */,
 				E672AAE02851DF79007DD4E6 /* Roboto-Thin.ttf in Resources */,
 			);
