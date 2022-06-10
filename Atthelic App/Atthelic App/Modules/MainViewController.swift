@@ -15,6 +15,11 @@ class MainViewController: UIViewController {
     private let loader = Molecules.Spinner
     private let errorView = Molecules.Views.Error
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    private var domainViewModel: [GameCellModel] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Inits
     init() {
@@ -54,20 +59,24 @@ extension MainViewController {
         errorView.translatesAutoresizingMaskIntoConstraints = false
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
-        loader.bind(.init(.black, format: .medium))        
-        tableView.delegate = self
+        loader.bind(.init(.black, format: .medium))
+        
+        tableView.backgroundColor = .clear
+        
+        tableView.allowsSelection = false
         tableView.dataSource = self
-        tableView.backgroundColor = .green
+        tableView.separatorColor = .clear
+        tableView.rowHeight = 191
+        tableView.estimatedRowHeight = 191
+        tableView.register(GameCell.self, forCellReuseIdentifier: GameCell.Identifier)
         
         view.fill(loader)
         view.addSubview(errorView)
-        view.addSubview(tableView)
+        view.fill(tableView)
         
         NSLayoutConstraint.activate([
             errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            tableView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),
-            tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
         ])
         
     }
@@ -77,23 +86,21 @@ extension MainViewController {
 extension MainViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        domainViewModel.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GameCell.Identifier, for: indexPath) as? GameCell else {
+            fatalError("Have you registered the cell?")
+        }
+        cell.bind(domainViewModel[indexPath.section])
+        return cell
     }
     
-}
-
-extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
 }
 
 extension MainViewController: MainViewOutput {
@@ -113,13 +120,12 @@ extension MainViewController: MainViewOutput {
             self.errorView.bind(.init(error, retryButtonText: "Try again"))
             self.errorView.retryButton.isUserInteractionEnabled = true
             
-        case .data(let array):
+        case .data(let viewDomainModel):
             self.loader.stop()
             self.errorView.isHidden = true
             self.tableView.isHidden = false
             self.errorView.retryButton.isUserInteractionEnabled = false
-            
-            print(array)
+            self.domainViewModel = viewDomainModel
         }
     }
     

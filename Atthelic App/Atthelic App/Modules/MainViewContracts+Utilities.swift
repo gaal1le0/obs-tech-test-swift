@@ -6,25 +6,12 @@
 //
 
 import Foundation
-
-struct MainViewStateDataState: Identifiable {
-    var id: Int
-    
-    enum _MainViewStateDataStateInt {
-        case loading
-        case error(String)
-        case data([Atthelete])
-    }
-    
-    let headerTitle: String
-    var state: _MainViewStateDataStateInt
-    
-}
+import AppUtils
 
 enum MainViewState {
     case loading
     case error(String)
-    case data([MainViewStateDataState])
+    case data([GameCellModel])
 }
 
 protocol MainViewOutput: AnyObject {
