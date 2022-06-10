@@ -6,10 +6,23 @@
 //
 
 import Foundation
+import AppUtils
+
+enum DetailStateType {
+    case basic(BasicCellModel)
+    case medals //TODO: Pending
+    case text //TODO: Pending
+}
+
+struct DetailStateData {
+    let fullName: String
+    let profilePhotoURL: String
+    let domModel: [DetailStateType]
+}
 
 enum DetailState {
     case loading
-    case data
+    case data(DetailStateData)
     case error(String)
 }
 
@@ -22,3 +35,5 @@ protocol DetailViewOutput: AnyObject {
     func update(_ state: DetailState)
     func configureNavigationBarTitle(_ title: String)
 }
+
+

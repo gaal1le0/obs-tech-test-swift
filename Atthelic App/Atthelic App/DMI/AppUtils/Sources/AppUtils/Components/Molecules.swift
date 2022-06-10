@@ -36,6 +36,10 @@ public enum Molecules {
         public static var Attlete: AttleteCell {
             return AttleteCell()
         }
+        
+        public static var Basic: BasicCell {
+            return BasicCell()
+        }
     }
     
 }

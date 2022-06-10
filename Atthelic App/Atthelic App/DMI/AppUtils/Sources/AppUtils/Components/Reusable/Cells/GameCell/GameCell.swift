@@ -146,7 +146,7 @@ extension GameCell {
                 ])
             } else {
                 NSLayoutConstraint.activate([
-                    view.leadingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.leadingAnchor),
+                    view.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
                     view.trailingAnchor.constraint(equalTo: trailingAnchor),
                     headerContainer.leadingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.leadingAnchor)
                 ])
