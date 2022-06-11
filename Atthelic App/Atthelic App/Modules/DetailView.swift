@@ -99,13 +99,15 @@ extension DetailView {
         navigationController?.navigationBar.topItem?.title = ""
         view.backgroundColor = Tokens.Colors.Grayscale.Quaternary
         errorView.translatesAutoresizingMaskIntoConstraints = false
+        errorView.isUserInteractionEnabled = true
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
         loader.bind(.init(.black, format: .medium))
         loader.translatesAutoresizingMaskIntoConstraints = false
         
         profileImage.circular()
-        profileImage.layer.borderColor = Tokens.Colors.Tint.Secondary.Tone1.cgColor
+        profileImage.isHidden = true
+        profileImage.layer.borderColor = Tokens.Colors.Tint.Primary.Tone1.cgColor
         profileImage.layer.borderWidth = 3
         
         tableView.allowsSelection = false
@@ -121,8 +123,15 @@ extension DetailView {
         container.spacing = 15
         
         view.fill(loader)
-        view.fill(errorView)
-        view.fill(container, edges: view.safeAreaInsets)
+        view.addSubview(errorView)
+        view.fill(container)
+        
+        NSLayoutConstraint.activate([
+            errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            profileImage.widthAnchor.constraint(equalToConstant: 216),
+            profileImage.heightAnchor.constraint(equalToConstant: 216)
+        ])
         
     }
     
@@ -139,19 +148,18 @@ extension DetailView: DetailViewOutput {
         case .loading:
             self.loader.start()
             self.errorView.isHidden = true
-            self.errorView.retryButton.isUserInteractionEnabled = false
             
         case .error(let error):
             self.loader.stop()
             self.errorView.isHidden = false
             self.errorView.bind(.init(error, retryButtonText: "Try again"))
-            self.errorView.retryButton.isUserInteractionEnabled = true
             
         case .data(let modelData):
             self.profileImage.downloadedFrom(url: modelData.profilePhotoURL) {
                 self.viewDomainObject = modelData.domModel
                 self.errorView.isHidden = true
                 self.loader.stop()
+                self.profileImage.isHidden = false
             }
         }
     }

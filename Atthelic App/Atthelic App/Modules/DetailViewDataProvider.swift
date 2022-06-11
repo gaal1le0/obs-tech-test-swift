@@ -25,4 +25,9 @@ class DetailViewDataProvider {
         apiClient.send(request, completion: completion)
     }
     
+    func getAttleteScore(attleteId: String, completion: @escaping (Result<[AttheleteScoreDTO], Error>) -> Void) {
+        let request = AttheleteScoreRequest(String(attleteId))
+        apiClient.send(request, completion: completion)
+    }
+    
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E63EDE6D285355EC003E1D17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63EDE6C285355EC003E1D17 /* Assets.xcassets */; };
+		E63EDE7428555C1B003E1D17 /* AttleteScore+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63EDE7328555C1B003E1D17 /* AttleteScore+Domain.swift */; };
 		E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A2284F8E0700E69329 /* AppDelegate.swift */; };
 		E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A4284F8E0700E69329 /* SceneDelegate.swift */; };
 		E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A6284F8E0700E69329 /* MainViewController.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		E63EDE6C285355EC003E1D17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E63EDE7328555C1B003E1D17 /* AttleteScore+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttleteScore+Domain.swift"; sourceTree = "<group>"; };
 		E657799F284F8E0700E69329 /* Atthelic App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Atthelic App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65779A2284F8E0700E69329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E65779A4284F8E0700E69329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				E65779F3284F992200E69329 /* Atthelete+Domain.swift */,
 				E6577A15284FC04D00E69329 /* Game+Domain.swift */,
 				E688B9B3285145A9004275F8 /* Measure+Domain.swift */,
+				E63EDE7328555C1B003E1D17 /* AttleteScore+Domain.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				E6577A10284FB55E00E69329 /* DetailViewModel.swift in Sources */,
 				E688B9B4285145A9004275F8 /* Measure+Domain.swift in Sources */,
 				E65779FA284FAA3400E69329 /* SplashScreenModel.swift in Sources */,
+				E63EDE7428555C1B003E1D17 /* AttleteScore+Domain.swift in Sources */,
 				E6577A06284FADB700E69329 /* RootContainer.swift in Sources */,
 				E65779FC284FAA5300E69329 /* SplashScreenContracts+Utilities.swift in Sources */,
 				E6577A16284FC04D00E69329 /* Game+Domain.swift in Sources */,
