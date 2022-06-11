@@ -14,9 +14,10 @@ public class Profile: UIView {
     let container = Atoms.StackViews.Vertical
     let profileName = UILabel(frame: .zero)
     let profileImage = UIImageView(frame: .zero)
+    let loader = Molecules.Spinner
     
     lazy var allSubviews: [UIView] = {
-        return [profileImage, profileName]
+        return [profileImage, loader, profileName]
     }()
     
     // MARK: - Inits
@@ -31,7 +32,10 @@ public class Profile: UIView {
     
     // MARK: - Methods
     public func bind(_ model: ProfileModel) {
-        profileImage.image = model.profileImage
+        profileImage.downloadedFrom(url: model.profileImageURL) {
+            self.loader.stop()
+            self.profileImage.isHidden = false
+        }
         profileName.text = model.fullName
     }
     
@@ -40,8 +44,11 @@ public class Profile: UIView {
 extension Profile {
     func setupViews() {
         
-        profileImage.contentMode = .scaleAspectFit
+        loader.start()
+        
+        profileImage.contentMode = .scaleAspectFill
         profileImage.circular()
+        profileImage.isHidden = true
         profileName.numberOfLines = 2
         profileName.textAlignment = .center
         profileName.font = .systemFont(ofSize: 14, weight: .semibold)
@@ -54,6 +61,7 @@ extension Profile {
         
         NSLayoutConstraint.activate([
             profileImage.widthAnchor.constraint(equalToConstant: 67),
+            profileImage.heightAnchor.constraint(equalToConstant: 67),
             profileName.widthAnchor.constraint(equalToConstant: 56)
         ])
         

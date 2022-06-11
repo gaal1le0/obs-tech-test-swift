@@ -46,7 +46,7 @@ class MainViewModel {
             if let att = value.attletes {
                 if att.count > 0 {
                     return .data(.init(attletes: att.map {
-                        ProfileModel(fullName: $0.fullName, profileImage: UIImage(named: "splash_logo")!)
+                        ProfileModel(fullName: $0.fullName, profileImageURL:$0.photoURL!)
                     }, callback: { index in
                         print("Selected \(index)")
                     }))

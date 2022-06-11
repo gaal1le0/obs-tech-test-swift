@@ -23,8 +23,8 @@ let package = Package(
             name: "AppUtils",
             dependencies: [],
             resources: [
-                .process("Resources/Colors.xcassets")
-                
+                .process("Resources/Colors.xcassets"),
+                .process("Resources/Media.xcassets"),
             ]
         ),
         .testTarget(

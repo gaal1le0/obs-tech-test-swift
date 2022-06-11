@@ -11,10 +11,10 @@ import UIKit
 public struct ProfileModel {
     
     let fullName: String
-    let profileImage: UIImage
+    let profileImageURL: URL
     
-    public init(fullName: String, profileImage: UIImage) {
+    public init(fullName: String, profileImageURL: URL) {
         self.fullName = fullName
-        self.profileImage = profileImage
+        self.profileImageURL = profileImageURL
     }
 }

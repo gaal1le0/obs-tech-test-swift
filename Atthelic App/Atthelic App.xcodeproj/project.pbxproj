@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E63EDE6D285355EC003E1D17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63EDE6C285355EC003E1D17 /* Assets.xcassets */; };
-		E63EDE7228551F9C003E1D17 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63EDE7128551F9C003E1D17 /* ImageManager.swift */; };
 		E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A2284F8E0700E69329 /* AppDelegate.swift */; };
 		E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A4284F8E0700E69329 /* SceneDelegate.swift */; };
 		E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A6284F8E0700E69329 /* MainViewController.swift */; };
@@ -71,7 +70,6 @@
 
 /* Begin PBXFileReference section */
 		E63EDE6C285355EC003E1D17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E63EDE7128551F9C003E1D17 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		E657799F284F8E0700E69329 /* Atthelic App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Atthelic App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65779A2284F8E0700E69329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E65779A4284F8E0700E69329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,14 +139,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E63EDE7028551F90003E1D17 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				E63EDE7128551F9C003E1D17 /* ImageManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		E6577996284F8E0700E69329 = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				E65779EF284F97FA00E69329 /* Constants.swift */,
-				E63EDE7028551F90003E1D17 /* Managers */,
 				E6577A07284FAEDF00E69329 /* Base */,
 				E65779F2284F987B00E69329 /* Domain */,
 				E65779D4284F8E5600E69329 /* Resources */,
@@ -490,7 +479,6 @@
 				E6577A02284FACDC00E69329 /* MainCoordinator.swift in Sources */,
 				E6577A09284FAEEE00E69329 /* CoordinatorStuff+Base.swift in Sources */,
 				E65779F0284F97FA00E69329 /* Constants.swift in Sources */,
-				E63EDE7228551F9C003E1D17 /* ImageManager.swift in Sources */,
 				E6577A10284FB55E00E69329 /* DetailViewModel.swift in Sources */,
 				E688B9B4285145A9004275F8 /* Measure+Domain.swift in Sources */,
 				E65779FA284FAA3400E69329 /* SplashScreenModel.swift in Sources */,
