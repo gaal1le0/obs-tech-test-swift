@@ -14,11 +14,10 @@ public class DescriptionCell: UITableViewCell {
     public static let Identifier = "DescriptionCell.Identifier"
     let container = Atoms.StackViews.Vertical
     let titleLabel = UILabel(frame: .zero)
-    let biographyText = UITextView(frame: .zero)
-    let onReadMore = UIButton(frame: .zero)
+    let biographyText = UILabel(frame: .zero)
     
     lazy var allSubviews: [UIView] = {
-        return [titleLabel, biographyText, onReadMore]
+        return [titleLabel, biographyText]
     }()
     
     // MARK: - Inits
@@ -34,11 +33,7 @@ public class DescriptionCell: UITableViewCell {
     // MARK: - Methods
     public func bind(_ model: DescriptionCellModel) {
         biographyText.text = model.biography
-    }
-    
-    @objc
-    func openMoreText() {
-        print("Hey mostrar mas texto")
+        
     }
     
 }
@@ -46,29 +41,19 @@ public class DescriptionCell: UITableViewCell {
 extension DescriptionCell {
     func setupViews() {
         
-        contentView.isUserInteractionEnabled = true
-        titleLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        isUserInteractionEnabled = false
+        titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         titleLabel.textAlignment = .left
         titleLabel.text = "Biography"
         
-        onReadMore.setTitle("Read more ->", for: .normal)
-        onReadMore.setTitleColor(.black, for: .normal)
-        onReadMore.backgroundColor = .clear
-        onReadMore.layer.borderColor = UIColor.clear.cgColor
-        onReadMore.titleLabel?.font = .systemFont(ofSize: 14, weight: .thin)
-        onReadMore.titleLabel?.textAlignment = .left
-        onReadMore.addTarget(self, action: #selector(openMoreText), for: .touchUpInside)
-        
-        biographyText.isEditable = false
-        biographyText.isSelectable = false
-        biographyText.backgroundColor = .clear
         biographyText.textAlignment = .left
         biographyText.tintColor = .black
         biographyText.font = .systemFont(ofSize: 14, weight: .regular)
+        biographyText.numberOfLines = 0
         
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         allSubviews.forEach { container.addArrangedSubview($0) }
-        container.spacing = 4
+        container.spacing = 8
         container.alignment = .leading
         
         fill(container, edges: Tokens.Edges.Secondary)
