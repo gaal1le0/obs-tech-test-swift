@@ -81,12 +81,11 @@ class MainViewModel {
             switch scoreCompletion {
             case .failure(_):
                 self.dom[index].attletes = nil
-            case .success(let scoreDTO):                
+            case .success(let scoreDTO):
                 self.dom[index].attletes?.append(Atthelete.init(attleteDTO, score: scoreDTO.first { scoreItem in
                     scoreItem.year == gameYear && scoreItem.city == gameCity
                 }))
                 self.transformToViewDTO()
-
             }
         }
     }
