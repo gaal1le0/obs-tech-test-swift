@@ -23,7 +23,7 @@ public class MedalsCell: UITableViewCell {
     
     // MARK: - Inits
     init() {
-        super.init(style: .default, reuseIdentifier: MedalsCell.Identifier)
+        super.init(style: .default, reuseIdentifier: Self.Identifier)
         setupViews()
     }
     

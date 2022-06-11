@@ -11,7 +11,7 @@ import AppUtils
 enum DetailStateType {
     case basic(BasicCellModel)
     case medals(MedalsCellModel)
-    case text //TODO: Pending
+    case text(DescriptionCellModel)
 }
 
 struct DetailStateData {

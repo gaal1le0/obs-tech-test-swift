@@ -49,7 +49,7 @@ public class GameCell: UITableViewCell {
     
     // MARK: - Inits
     init() {
-        super.init(style: .default, reuseIdentifier: GameCell.Identifier)
+        super.init(style: .default, reuseIdentifier: Self.Identifier)
         setupViews()
     }
     

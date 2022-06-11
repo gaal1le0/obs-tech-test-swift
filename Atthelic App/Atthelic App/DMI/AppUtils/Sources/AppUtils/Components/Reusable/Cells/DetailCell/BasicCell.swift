@@ -22,7 +22,7 @@ public class BasicCell: UITableViewCell {
     
     // MARK: - Inits
     init() {
-        super.init(style: .default, reuseIdentifier: BasicCell.Identifier)
+        super.init(style: .default, reuseIdentifier: Self.Identifier)
         setupViews()
     }
     
