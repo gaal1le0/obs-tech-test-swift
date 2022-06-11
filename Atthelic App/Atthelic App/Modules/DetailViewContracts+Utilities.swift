@@ -16,7 +16,7 @@ enum DetailStateType {
 
 struct DetailStateData {
     let fullName: String
-    let profilePhotoURL: String
+    let profilePhotoURL: URL
     let domModel: [DetailStateType]
 }
 

@@ -96,11 +96,12 @@ extension DetailView {
     
     func setupViews() {
             
+        navigationController?.navigationBar.topItem?.title = ""
         view.backgroundColor = Tokens.Colors.Grayscale.Quaternary
         errorView.translatesAutoresizingMaskIntoConstraints = false
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
-        loader.bind(.init(.black))
+        loader.bind(.init(.black, format: .medium))
         loader.translatesAutoresizingMaskIntoConstraints = false
         
         profileImage.circular()
@@ -121,7 +122,7 @@ extension DetailView {
         
         view.fill(loader)
         view.fill(errorView)
-        view.fill(tableView)
+        view.fill(container, edges: view.safeAreaInsets)
         
     }
     
@@ -130,7 +131,7 @@ extension DetailView {
 extension DetailView: DetailViewOutput {
     
     func configureNavigationBarTitle(_ title: String) {
-        navigationController?.navigationBar.topItem?.title = title
+        self.title = title
     }
     
     func update(_ state: DetailState) {
@@ -147,13 +148,11 @@ extension DetailView: DetailViewOutput {
             self.errorView.retryButton.isUserInteractionEnabled = true
             
         case .data(let modelData):
-            self.loader.stop()
-            self.errorView.isHidden = true
-            self.errorView.retryButton.isUserInteractionEnabled = false
-            self.viewDomainObject = modelData.domModel
-            // TODO: Fix photo
-            // TODO: Fix navigation title
-            
+            self.profileImage.downloadedFrom(url: modelData.profilePhotoURL) {
+                self.viewDomainObject = modelData.domModel
+                self.errorView.isHidden = true
+                self.loader.stop()
+            }
         }
     }
 }

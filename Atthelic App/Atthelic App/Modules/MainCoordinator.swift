@@ -36,7 +36,6 @@ class MainCoordinator: CoordinatorStuff {
 extension MainCoordinator: MainViewRouter {
     
     func showAttleteDetails(_ attleteId: String, attleteFullName: String) {
-        navigationController.navigationBar.backItem?.title = ""
         let scene = factory.createDetailScene(apiClient, attleteId: attleteId, attleteFullName: attleteFullName)
         navigationController.pushViewController(scene, animated: true)
     }

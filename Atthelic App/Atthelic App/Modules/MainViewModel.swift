@@ -48,7 +48,7 @@ class MainViewModel {
                     return .data(.init(attletes: att.map {
                         ProfileModel(fullName: $0.fullName, profileImageURL:$0.photoURL!)
                     }, callback: { index in
-                        print("Selected \(index)")
+                        self.router.showAttleteDetails(att[index].id, attleteFullName: att[index].fullName)
                     }))
                 }
                 return .error(.init(message: "There's no data to show", tapOnRetry: {

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func downloadedFrom(url: URL, completion: @escaping() -> Void) {
+    public func downloadedFrom(url: URL, completion: @escaping() -> Void) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
