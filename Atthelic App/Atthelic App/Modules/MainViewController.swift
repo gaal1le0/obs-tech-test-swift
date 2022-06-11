@@ -94,9 +94,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: GameCell.Identifier, for: indexPath) as? GameCell else {
-            fatalError("Have you registered the cell?")
-        }
+        let cell = Molecules.Cells.Game
         cell.bind(domainViewModel[indexPath.section])
         return cell
     }

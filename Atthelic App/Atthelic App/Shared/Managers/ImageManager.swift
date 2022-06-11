@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum ImageManagerErrors {
+enum ImageManagerErrors: String {
     case invalidDataPath = "Data could not be processed"
     case invalidURL = "Data is not available"
 }
@@ -20,15 +20,15 @@ class ImageManager {
         return shared
     }()
     
-    func Load(from url: URL, completion: @escaping(Result<UIImage, String>) -> Void) {
+    func Load(from url: URL, completion: @escaping(Result<UIImage, String>) -> Void) {
         if let data = try? Data(contentsOf: url) {
             if let image = UIImage(data: data) {
                 completion(.success(image))
             } else {
-                completion(.failure(ImageManagerErrors.invalidDataPath))
+                completion(.failure(ImageManagerErrors.invalidDataPath.rawValue))
             }
         } else {
-            completion(.failure(ImageManagerErrors.invalidURL))
+            completion(.failure(ImageManagerErrors.invalidURL.rawValue))
         }
     }
     

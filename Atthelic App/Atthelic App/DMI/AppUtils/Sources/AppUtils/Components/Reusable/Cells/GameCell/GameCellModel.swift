@@ -18,8 +18,8 @@ public struct GameCellHeaderModel {
 }
 
 public struct GameCellStateDataModel {
-    let attletes: [ProfileModel]
-    let callback: (Int) -> Void
+    public let attletes: [ProfileModel]
+    public let callback: (Int) -> Void
     
     public init(attletes: [ProfileModel], callback: @escaping (Int) -> Void) {
         self.attletes = attletes
@@ -45,8 +45,8 @@ public enum GameCellState {
 
 public struct GameCellModel {
     
-    let header: GameCellHeaderModel
-    let state: GameCellState
+    public let header: GameCellHeaderModel
+    public let state: GameCellState
     
     public init(header: GameCellHeaderModel, state: GameCellState = .loading) {
         self.header = header

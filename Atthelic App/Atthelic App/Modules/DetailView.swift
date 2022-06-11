@@ -25,7 +25,7 @@ class DetailView: UIViewController {
     
     lazy var allSubviews: [UIView] = {
         return [profileImage, tableView]
-    }
+    }()
     
     // MARK: - Dependencies
     var model: DetailViewInput?
@@ -64,34 +64,28 @@ extension DetailView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return viewDomainObject.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch data[indexPath.row] {
+        switch viewDomainObject[indexPath.row] {
         case .basic(let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.Identifier, for: indexPath) as? BasicCell else {
-                fatalError("Have you registered the cell?")
-            }
+            let cell = Molecules.Cells.Basic
             cell.bind(model)
             return cell
         case .medals(let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MedalsCell.Identifier, for: indexPath) as? BasicCell else {
-                fatalError("Have you registered the cell?")
-            }
+            let cell = Molecules.Cells.Medal
             cell.bind(model)
             return cell
         case .text(let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.Identifier, for: indexPath) as? BasicCell else {
-                fatalError("Have you registered the cell?")
-            }
+            let cell = Molecules.Cells.Description
             cell.bind(model)
             return cell
         }
     }
 }
 
-extension DetailCellViewController: UITableViewDelegate {
+extension DetailView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -110,7 +104,7 @@ extension DetailView {
         loader.translatesAutoresizingMaskIntoConstraints = false
         
         profileImage.circular()
-        profileImage.layer.borderColor = Tokens.Colors.Tint.Secondary.Tone1
+        profileImage.layer.borderColor = Tokens.Colors.Tint.Secondary.Tone1.cgColor
         profileImage.layer.borderWidth = 3
         
         tableView.allowsSelection = false
@@ -125,9 +119,9 @@ extension DetailView {
         allSubviews.forEach { container.addArrangedSubview($0) }
         container.spacing = 15
         
-        fill(loader)
-        fill(errorView)
-        fill(tableView)
+        view.fill(loader)
+        view.fill(errorView)
+        view.fill(tableView)
         
     }
     
