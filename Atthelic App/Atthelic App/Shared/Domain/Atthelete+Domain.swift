@@ -48,11 +48,11 @@ class Atthelete: Identifiable {
     
     convenience init(_ dto: AttheleteDTO, scores: [AttleteScore]) {
         self.init(dto, score: AttleteScore(gold: scores.reduce(0) { partialResult, item in
-            item.gold
+            partialResult + item.gold
         }, silver: scores.reduce(0) { partialResult, item in
-            item.silver
+            partialResult + item.silver
         }, bronze: scores.reduce(0) { partialResult, item in
-            item.bronze
+            partialResult + item.bronze
         }))
     }
     
