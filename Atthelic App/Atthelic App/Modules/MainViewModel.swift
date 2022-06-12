@@ -14,16 +14,16 @@ class MainViewModel {
     
     // MARK: - Dependencies
     weak private var view: MainViewOutput?
-    private let router: MainViewRouter
+    let router: MainViewRouter
     private let service: MainViewDataProvider
     
     // MARK: - Properties
-    private var state: MainViewState = .loading {
+    var state: MainViewState = .loading {
         didSet {
             self.view?.update(state)
         }
     }
-    private var dom: [Game] = [] {
+    var dom: [Game] = [] {
         didSet {
             transformToViewDTO()
         }

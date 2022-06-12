@@ -17,12 +17,12 @@ class DetailViewModel {
     private let attleteFullName: String
     
     // MARK: - Properties
-    private var state: DetailState = .loading {
+    var state: DetailState = .loading {
         didSet {
             self.view?.update(state)
         }
     }
-    private var dom: Atthelete? = nil {
+    var dom: Atthelete? = nil {
         didSet {
             self.transformToViewObject()
         }

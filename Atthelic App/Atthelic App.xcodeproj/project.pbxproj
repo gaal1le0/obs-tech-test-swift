@@ -13,7 +13,7 @@
 		E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A4284F8E0700E69329 /* SceneDelegate.swift */; };
 		E65779A7284F8E0700E69329 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A6284F8E0700E69329 /* MainViewController.swift */; };
 		E65779AF284F8E0A00E69329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65779AD284F8E0A00E69329 /* LaunchScreen.storyboard */; };
-		E65779BA284F8E0B00E69329 /* Atthelic_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779B9284F8E0B00E69329 /* Atthelic_AppTests.swift */; };
+		E65779BA284F8E0B00E69329 /* MainViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779B9284F8E0B00E69329 /* MainViewTests.swift */; };
 		E65779C4284F8E0B00E69329 /* Atthelic_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779C3284F8E0B00E69329 /* Atthelic_AppUITests.swift */; };
 		E65779C6284F8E0B00E69329 /* Atthelic_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779C5284F8E0B00E69329 /* Atthelic_AppUITestsLaunchTests.swift */; };
 		E65779DB284F8E8B00E69329 /* RootCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779DA284F8E8B00E69329 /* RootCordinator.swift */; };
@@ -79,7 +79,7 @@
 		E65779AE284F8E0A00E69329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E65779B0284F8E0A00E69329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E65779B5284F8E0B00E69329 /* Atthelic AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Atthelic AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E65779B9284F8E0B00E69329 /* Atthelic_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atthelic_AppTests.swift; sourceTree = "<group>"; };
+		E65779B9284F8E0B00E69329 /* MainViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTests.swift; sourceTree = "<group>"; };
 		E65779BF284F8E0B00E69329 /* Atthelic AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Atthelic AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65779C3284F8E0B00E69329 /* Atthelic_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atthelic_AppUITests.swift; sourceTree = "<group>"; };
 		E65779C5284F8E0B00E69329 /* Atthelic_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atthelic_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		E65779B8284F8E0B00E69329 /* Atthelic AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				E65779B9284F8E0B00E69329 /* Atthelic_AppTests.swift */,
+				E65779B9284F8E0B00E69329 /* MainViewTests.swift */,
 			);
 			path = "Atthelic AppTests";
 			sourceTree = "<group>";
@@ -510,7 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E65779BA284F8E0B00E69329 /* Atthelic_AppTests.swift in Sources */,
+				E65779BA284F8E0B00E69329 /* MainViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
