@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CDMarkdownKit
 
 public class DescriptionCell: UITableViewCell {
 
@@ -15,6 +16,7 @@ public class DescriptionCell: UITableViewCell {
     let container = Atoms.StackViews.Vertical
     let titleLabel = UILabel(frame: .zero)
     let biographyText = UILabel(frame: .zero)
+    let markdownParser = CDMarkdownParser()
     
     lazy var allSubviews: [UIView] = {
         return [titleLabel, biographyText]
@@ -32,7 +34,7 @@ public class DescriptionCell: UITableViewCell {
     
     // MARK: - Methods
     public func bind(_ model: DescriptionCellModel) {
-        biographyText.text = model.biography
+        biographyText.attributedText = markdownParser.parse(model.biography)
         
     }
     
@@ -41,7 +43,7 @@ public class DescriptionCell: UITableViewCell {
 extension DescriptionCell {
     func setupViews() {
         
-        isUserInteractionEnabled = false
+        contentView.isUserInteractionEnabled = true
         titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         titleLabel.textAlignment = .left
         titleLabel.text = "Biography"
