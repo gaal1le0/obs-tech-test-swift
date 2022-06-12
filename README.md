@@ -6,6 +6,10 @@ Actually this project is **private** due to internal reasons. This project was m
 
 [See instructions](https://docs.google.com/document/d/1PVTJ8Zj8cMD0G0FJrVXpe6Jp5H-bGQjW/edit?usp=sharing&ouid=110145367989075710341&rtpof=true&sd=true "See instructions")
 
+Also, I have prepared a new FIGMA project which contains the design applied (Designed by my Girldfriend 😁 ) 
+
+[See FIGMA Design](https://www.figma.com/file/m9SVCREXeOCG3u2QqHbNjf/Design "See FIGMA Design")
+
 ### How to start the project?
 
 1. Clone the project with 
