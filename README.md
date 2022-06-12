@@ -8,9 +8,12 @@ Actually this project is **private** due to internal reasons. This project was m
 
 ### How to start the project?
 
-1. Clone the project with ``$ git clone <url:string>``
-2. Move to the project folder and run `$ xed .` 
-*AKA: You must have installed xcodetools `$ xcode-select --install`*
+1. Clone the project with 
+``$ git clone <url:string>``
+3. Move to the project folder and run
+`$ xed .` 
+*AKA: You must have installed xcodetools 
+`$ xcode-select --install`*
 3. Select the simulator where you want to see the app.
 4. Enjoy the full app :) 
 
