@@ -43,7 +43,6 @@ public class DescriptionCell: UITableViewCell {
 extension DescriptionCell {
     func setupViews() {
         
-        contentView.isUserInteractionEnabled = true
         titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         titleLabel.textAlignment = .left
         titleLabel.text = "Biography"
