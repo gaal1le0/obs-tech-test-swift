@@ -69,7 +69,8 @@ class MainViewModel {
     private func transformToViewDTO(index: Int = -1) {
         if dom.count > 0 {
             self.state = .data(
-                self.dom.map { value -> GameCellModel in
+                self.dom.sorted(by: { $0>$1 })
+                    .map { value -> GameCellModel in
                         .init(header: .init(gameName: value.title, gameYear: String(value.yearRaw)), state: self.transformToViewDTOHelper(value: value, index: index))
                 }
             )
