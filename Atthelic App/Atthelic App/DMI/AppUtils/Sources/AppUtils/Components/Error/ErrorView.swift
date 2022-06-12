@@ -11,8 +11,13 @@ import UIKit
 public class ErrorView: UIView {
     
     // MARK: - Properties
-    private let label = UILabel(frame: .zero)
+    let container = Atoms.StackViews.Vertical
+    let label = UILabel(frame: .zero)
     public let retryButton = UIButton(frame: .zero)
+    
+    lazy var allSubviews: [UIView] = {
+        return [label, retryButton]
+    }()
     
     // MARK: - Inits
     init() {
@@ -36,26 +41,19 @@ extension ErrorView {
     func setupViews() {
         
         label.textColor = .black.withAlphaComponent(0.5)
-        label.font = UIFont(name: "Helvetica", size: 14.0)
+        label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .center
         label.numberOfLines = 0
         
         retryButton.backgroundColor = .clear
-        retryButton.titleLabel?.tintColor = .black
+        retryButton.setTitleColor(.black, for: .normal)
         retryButton.titleLabel?.font = .systemFont(ofSize: 9)
         
-        retryButton.translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(label)
-        addSubview(retryButton)
-        
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
-            retryButton.topAnchor.constraint(equalTo: label.safeAreaLayoutGuide.bottomAnchor, constant: 8),
-            retryButton.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
-        ])
+        allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        allSubviews.forEach { container.addArrangedSubview($0) }
+    
+        container.spacing = 8
+        fill(container)
         
     }
 }

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import AppUtils
+import Services
+import UIKit
 
 class MainViewModel {
     
@@ -20,13 +23,9 @@ class MainViewModel {
             self.view?.update(state)
         }
     }
-    private var dom: [MainViewStateDataState] = [] {
+    private var dom: [Game] = [] {
         didSet {
-            if !dom.isEmpty {
-                self.state = .data(dom)
-            } else {
-                self.state = .error("There's no data to show")
-            }
+            transformToViewDTO()
         }
     }
     
@@ -42,42 +41,70 @@ class MainViewModel {
     }
     
     // MARK: - Methods
-    private func getAttleteInfo(_ gameId: Int) {
-        service.getAttletes(gameId: String(gameId)) { attleteResults in
-            switch attleteResults {
-            case .failure(let error):
-                self.dom = self.dom.map { state -> MainViewStateDataState in
-                    if state.id == gameId {
-                        return .init(
-                            id: state.id, headerTitle: state.headerTitle, state: .error(error.localizedDescription)
-                        )
-                    }
-                    return state
+    private func transformToViewDTOHelper(value: Game, index: Int) -> GameCellState {
+        if !value.isLoading {
+            if let att = value.attletes {
+                if att.count > 0 {
+                    return .data(.init(attletes: att.map {
+                        ProfileModel(fullName: $0.fullName, profileImageURL:$0.photoURL!)
+                    }, callback: { index in
+                        self.router.showAttleteDetails(att[index].id, attleteFullName: att[index].fullName)
+                    }))
                 }
-            case .success(let attletes):
-                if !attletes.isEmpty {
-                    self.dom = self.dom.map { state -> MainViewStateDataState in
-                        if state.id == gameId {
-                            return .init(
-                                id: state.id, headerTitle: state.headerTitle, state: .data(
-                                     []
-                                )
-                            )
-                        }
-                        return state
+                return .error(.init(message: "There's no data to show", tapOnRetry: {
+                    if index != -1 {
+                        self.getAttleteInfo(value, index: index)
                     }
+                }))
+            }
+            return .error(.init(message: "Impossible to laod data from API", tapOnRetry: {
+                if index != -1 {
+                    self.getAttleteInfo(value, index: index)
+                }
+            }))
+        }
+        return .loading
+    }
+    
+    private func transformToViewDTO(index: Int = -1) {
+        if dom.count > 0 {
+            self.state = .data(
+                self.dom.sorted(by: { $0>$1 })
+                    .map { value -> GameCellModel in
+                        .init(header: .init(gameName: value.title, gameYear: String(value.yearRaw)), state: self.transformToViewDTOHelper(value: value, index: index))
+                }
+            )
+        }
+    }
+    
+    private func getScorebyAttlete(attleteDTO: AttheleteDTO, gameCity: String, gameYear: Int, index: Int) {
+        service.getAttleteScore(attleteId: attleteDTO.athlete_id) { scoreCompletion in
+            switch scoreCompletion {
+            case .failure(_):
+                self.dom[index].attletes = nil
+            case .success(let scoreDTO):
+                if let score = scoreDTO.first(where: { scoreItem in
+                    scoreItem.year == gameYear && scoreItem.city == gameCity
+                }) {
+                    self.dom[index].attletes?.append(Atthelete.init(attleteDTO, score: AttleteScore.init(score)))
                 } else {
-                    self.dom = self.dom.map { state -> MainViewStateDataState in
-                        if state.id == gameId {
-                            return .init(
-                                id: state.id, headerTitle: state.headerTitle, state: .error("There's no attlete on this game")
-                            )
-                        }
-                        return state
-                    }
+                    self.dom[index].attletes?.append(Atthelete.init(attleteDTO, score: nil))
+                }
+                self.transformToViewDTO()
+            }
+        }
+    }
+    
+    private func getAttleteInfo(_ game: Game, index: Int) {
+        service.getAttletes(gameId: String(game.id)) { results in
+            switch results {
+            case .failure(_):
+                self.dom[index].attletes = nil
+            case .success(let domAttletes):
+                domAttletes.forEach {
+                    self.getScorebyAttlete(attleteDTO: $0, gameCity: game.title, gameYear: game.yearRaw, index: index)
                 }
             }
-            
         }
     }
     
@@ -85,11 +112,12 @@ class MainViewModel {
         state = .loading
         service.getGameDTO { gamesCompletion in
             switch gamesCompletion {
-            case .failure(let error): self.state = .error(error.localizedDescription)
+            case .failure(_):
+                self.state = .error("It's impossible to call API Data")
             case .success(let games):
-                self.dom = games.map(Game.init).sorted {$0 > $1}.map {
-                    self.getAttleteInfo($0.id)
-                    return .init(id: $0.id, headerTitle: $0.asHeaderTitleFormatted, state: .loading)
+                self.dom = games.map { Game($0) }.sorted {$0 > $1}
+                self.dom.enumerated().forEach {
+                    self.getAttleteInfo($1, index: $0)
                 }
             }
         }

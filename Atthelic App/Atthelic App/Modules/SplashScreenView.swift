@@ -13,8 +13,13 @@ class SplashScreenView: UIViewController {
     
     // MARK: - Depedencies
     var model: SplashScreenInput?
+    private let container = Atoms.StackViews.Vertical
     private let logo = UIImageView()
     private let titleLogo = UILabel(frame: .zero)
+    
+    lazy var allSubviews: [UIView] = {
+        return [logo, titleLogo]
+    }()
     
     // MARK: - Inits
     
@@ -56,17 +61,17 @@ extension SplashScreenView {
         titleLogo.attributedText = title
         titleLogo.textAlignment = .center
         
-        titleLogo.translatesAutoresizingMaskIntoConstraints = false
-        logo.translatesAutoresizingMaskIntoConstraints = false
-
-        view.addSubview(logo)
-        view.addSubview(titleLogo)
+        allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        allSubviews.forEach { container.addArrangedSubview($0) }
+        
+        container.spacing = 12
+        container.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(container)
         
         NSLayoutConstraint.activate([
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             titleLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLogo.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 12),
             titleLogo.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
         

@@ -14,6 +14,12 @@ class DetailView: UIViewController {
     // MARK: - Properties
     private let loader = Molecules.Spinner
     private let errorView = Molecules.Views.Error
+    private var viewDomainObject: [DetailStateType] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     // MARK: - Dependencies
     var model: DetailViewInput?
@@ -46,24 +52,73 @@ class DetailView: UIViewController {
     
 }
 
+extension DetailView: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewDomainObject.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch viewDomainObject[indexPath.row] {
+        case .basic(let model):
+            let cell = Molecules.Cells.Basic
+            cell.bind(model)
+            return cell
+        case .medals(let model):
+            let cell = Molecules.Cells.Medal
+            cell.bind(model)
+            return cell
+        case .text(let model):
+            let cell = Molecules.Cells.Description
+            cell.bind(model)
+            return cell
+        case .photo(let model):
+            let cell = Molecules.Cells.Photo
+            cell.bind(model)
+            return cell
+        }
+    }
+}
+
+extension DetailView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}
+
+
 extension DetailView {
     
     func setupViews() {
             
+        navigationController?.navigationBar.topItem?.title = ""
+        view.backgroundColor = Tokens.Colors.Grayscale.Quaternary
         errorView.translatesAutoresizingMaskIntoConstraints = false
+        errorView.isUserInteractionEnabled = true
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         
-        loader.bind(.init(.black))
+        loader.bind(.init(.black, format: .medium))
         loader.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(loader)
+        tableView.allowsSelection = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorColor = .clear
+        tableView.register(BasicCell.self, forCellReuseIdentifier: BasicCell.Identifier)
+        tableView.register(MedalsCell.self, forCellReuseIdentifier: MedalsCell.Identifier)
+        tableView.register(DescriptionCell.self, forCellReuseIdentifier: DescriptionCell.Identifier)
+        tableView.register(PhotoCell.self, forCellReuseIdentifier: PhotoCell.Identifier)
+        
+        view.fill(loader)
         view.addSubview(errorView)
+        view.fill(tableView)
         
         NSLayoutConstraint.activate([
-            loader.widthAnchor.constraint(equalTo: view.widthAnchor),
-            loader.heightAnchor.constraint(equalTo: view.heightAnchor),
-            errorView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            errorView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         
     }
@@ -73,7 +128,7 @@ extension DetailView {
 extension DetailView: DetailViewOutput {
     
     func configureNavigationBarTitle(_ title: String) {
-        navigationController?.navigationBar.topItem?.title = title
+        self.title = title
     }
     
     func update(_ state: DetailState) {
@@ -81,20 +136,16 @@ extension DetailView: DetailViewOutput {
         case .loading:
             self.loader.start()
             self.errorView.isHidden = true
-            self.errorView.retryButton.isUserInteractionEnabled = false
             
         case .error(let error):
             self.loader.stop()
             self.errorView.isHidden = false
             self.errorView.bind(.init(error, retryButtonText: "Try again"))
-            self.errorView.retryButton.isUserInteractionEnabled = true
             
-        case .data:
-            self.loader.stop()
+        case .data(let modelData):
+            self.viewDomainObject = modelData.domModel
             self.errorView.isHidden = true
-            self.errorView.retryButton.isUserInteractionEnabled = false
-
-            
+            self.loader.stop()
         }
     }
 }

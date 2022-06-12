@@ -10,4 +10,12 @@ import Foundation
 struct Measure {
     let weight: Int
     let height: Int
+    
+    var fullWeight: String {
+        String(weight) + " kg"
+    }
+    
+    var fullHeight: String {
+        return String(height) + " cm"
+    }
 }

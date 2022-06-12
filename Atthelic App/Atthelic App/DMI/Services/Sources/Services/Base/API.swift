@@ -25,9 +25,9 @@ public enum API {
             case .getById(let athleteId):
                 return "\(Self.microservice)/\(athleteId)"
             case .photo(let athleteId):
-                return "\(Self.microservice)\(athleteId)/photo"
+                return "\(Self.microservice)/\(athleteId)/photo"
             case .results(let athleteId):
-                return "\(Self.microservice)\(athleteId)/results"
+                return "\(Self.microservice)/\(athleteId)/results"
             }
         }
         
