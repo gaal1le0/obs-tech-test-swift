@@ -42,8 +42,8 @@ class MainViewModel {
     
     // MARK: - Methods
     private func transformToViewDTOHelper(value: Game, index: Int) -> GameCellState {
-        if !value.isLoading {
-            if let att = value.attletes {
+        if let att = value.attletes {
+            if !value.isLoading {
                 if att.count > 0 {
                     return .data(.init(attletes: att.map {
                         ProfileModel(fullName: $0.fullName, profileImageURL:$0.photoURL!)
@@ -51,19 +51,21 @@ class MainViewModel {
                         self.router.showAttleteDetails(att[index].id, attleteFullName: att[index].fullName)
                     }))
                 }
-                return .error(.init(message: "There's no data to show", tapOnRetry: {
+                return .error(.init(message: "There's no attlete to show :(", tapOnRetry: {
                     if index != -1 {
+                        self.dom[index].isLoading = true
                         self.getAttleteInfo(value, index: index)
                     }
                 }))
             }
-            return .error(.init(message: "Impossible to laod data from API", tapOnRetry: {
-                if index != -1 {
-                    self.getAttleteInfo(value, index: index)
-                }
-            }))
+            return .loading
         }
-        return .loading
+        return .error(.init(message: "Impossible to laod data from API", tapOnRetry: {
+            if index != -1 {
+                self.dom[index].isLoading = true
+                self.getAttleteInfo(value, index: index)
+            }
+        }))
     }
     
     private func transformToViewDTO(index: Int = -1) {
@@ -90,7 +92,7 @@ class MainViewModel {
                 } else {
                     self.dom[index].attletes?.append(Atthelete.init(attleteDTO, score: nil))
                 }
-                self.transformToViewDTO()
+                self.transformToViewDTO(index: index)
             }
         }
     }
@@ -101,8 +103,12 @@ class MainViewModel {
             case .failure(_):
                 self.dom[index].attletes = nil
             case .success(let domAttletes):
-                domAttletes.forEach {
-                    self.getScorebyAttlete(attleteDTO: $0, gameCity: game.title, gameYear: game.yearRaw, index: index)
+                if domAttletes.count > 0 {
+                    domAttletes.forEach {
+                        self.getScorebyAttlete(attleteDTO: $0, gameCity: game.title, gameYear: game.yearRaw, index: index)
+                    }
+                } else {
+                    self.dom[index].isLoading = false
                 }
             }
         }
