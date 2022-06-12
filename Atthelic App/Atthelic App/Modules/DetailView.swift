@@ -112,9 +112,9 @@ extension DetailView {
         tableView.register(DescriptionCell.self, forCellReuseIdentifier: DescriptionCell.Identifier)
         tableView.register(PhotoCell.self, forCellReuseIdentifier: PhotoCell.Identifier)
         
-        view.fill(loader)
         view.addSubview(errorView)
         view.fill(tableView)
+        view.fill(loader)
         
         NSLayoutConstraint.activate([
             errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
