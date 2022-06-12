@@ -19,13 +19,7 @@ class DetailView: UIViewController {
             tableView.reloadData()
         }
     }
-    private let container = Atoms.StackViews.Vertical
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
-    private let profileImage = UIImageView(frame: .zero)
-    
-    lazy var allSubviews: [UIView] = {
-        return [profileImage, tableView]
-    }()
     
     // MARK: - Dependencies
     var model: DetailViewInput?
@@ -81,6 +75,10 @@ extension DetailView: UITableViewDataSource {
             let cell = Molecules.Cells.Description
             cell.bind(model)
             return cell
+        case .photo(let model):
+            let cell = Molecules.Cells.Photo
+            cell.bind(model)
+            return cell
         }
     }
 }
@@ -105,11 +103,6 @@ extension DetailView {
         loader.bind(.init(.black, format: .medium))
         loader.translatesAutoresizingMaskIntoConstraints = false
         
-        profileImage.circular()
-        profileImage.isHidden = true
-        profileImage.layer.borderColor = Tokens.Colors.Tint.Primary.Tone1.cgColor
-        profileImage.layer.borderWidth = 3
-        
         tableView.allowsSelection = false
         tableView.delegate = self
         tableView.dataSource = self
@@ -117,20 +110,15 @@ extension DetailView {
         tableView.register(BasicCell.self, forCellReuseIdentifier: BasicCell.Identifier)
         tableView.register(MedalsCell.self, forCellReuseIdentifier: MedalsCell.Identifier)
         tableView.register(DescriptionCell.self, forCellReuseIdentifier: DescriptionCell.Identifier)
-        
-        allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        allSubviews.forEach { container.addArrangedSubview($0) }
-        container.spacing = 15
+        tableView.register(PhotoCell.self, forCellReuseIdentifier: PhotoCell.Identifier)
         
         view.fill(loader)
         view.addSubview(errorView)
-        view.fill(container)
+        view.fill(tableView)
         
         NSLayoutConstraint.activate([
             errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            profileImage.widthAnchor.constraint(equalToConstant: 216),
-            profileImage.heightAnchor.constraint(equalToConstant: 216)
         ])
         
     }
@@ -155,12 +143,9 @@ extension DetailView: DetailViewOutput {
             self.errorView.bind(.init(error, retryButtonText: "Try again"))
             
         case .data(let modelData):
-            self.profileImage.downloadedFrom(url: modelData.profilePhotoURL) {
-                self.viewDomainObject = modelData.domModel
-                self.errorView.isHidden = true
-                self.loader.stop()
-                self.profileImage.isHidden = false
-            }
+            self.viewDomainObject = modelData.domModel
+            self.errorView.isHidden = true
+            self.loader.stop()
         }
     }
 }

@@ -20,8 +20,8 @@ class Atthelete: Identifiable {
     let score: AttleteScore?
     
     var dateOfBirthFormatted: String {
-        if let d =  Calendar.full_year(self.dateOfBirth) {
-            return String(d)
+        if let dateOfBirth = dateOfBirth {
+            return DateFormatter.full_date_formatter.string(from: dateOfBirth)
         }
         return "Not available"
     }

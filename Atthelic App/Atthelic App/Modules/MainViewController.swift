@@ -39,6 +39,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         model?.viewWillAppear()
+        title = "Olympic Athletes"
     }
 
     // MARK: - Methods
@@ -54,8 +55,6 @@ extension MainViewController {
     func setupViews() {
         
         view.backgroundColor = Tokens.Colors.Grayscale.Tertiary
-        navigationController?.navigationBar.topItem?.title = "Olympic Athletes"
-        
         errorView.translatesAutoresizingMaskIntoConstraints = false
         errorView.retryButton.addTarget(self, action: #selector(retryLoadingData), for: .touchUpInside)
         

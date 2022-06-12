@@ -11,7 +11,7 @@ extension DateFormatter {
     
     public static let full_date_formatter: DateFormatter = {
         let fmater = DateFormatter()
-        fmater.dateFormat = "MM-dd-yyyy"
+        fmater.dateFormat = "dd-MM-yyyy"
         fmater.timeZone = TimeZone.current
         return fmater
     }()

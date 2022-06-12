@@ -12,11 +12,11 @@ enum DetailStateType {
     case basic(BasicCellModel)
     case medals(MedalsCellModel)
     case text(DescriptionCellModel)
+    case photo(PhotoCellModel)
 }
 
 struct DetailStateData {
     let fullName: String
-    let profilePhotoURL: URL
     let domModel: [DetailStateType]
 }
 

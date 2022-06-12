@@ -43,7 +43,8 @@ class DetailViewModel {
     // MARK: - Methods    
     private func transformToViewObject() {
         if let att = self.dom {
-            state = .data(.init(fullName: att.fullName, profilePhotoURL: att.photoURL!, domModel: [
+            state = .data(.init(fullName: att.fullName, domModel: [
+                .photo(.init(photoURL: att.photoURL!)),
                 .basic(.init(title: "Name", subtitle: att.fullName)),
                 .basic(.init(title: "Date of Birth", subtitle: att.dateOfBirthFormatted)),
                 .basic(.init(title: "Weight", subtitle: att.measure.fullWeight)),

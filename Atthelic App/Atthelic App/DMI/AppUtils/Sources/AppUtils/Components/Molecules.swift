@@ -48,6 +48,10 @@ public enum Molecules {
         public static var Description: DescriptionCell {
             return DescriptionCell()
         }
+        
+        public static var Photo: PhotoCell {
+            return PhotoCell()
+        }
     }
     
 }
