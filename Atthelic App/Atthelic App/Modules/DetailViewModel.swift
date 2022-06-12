@@ -82,7 +82,7 @@ class DetailViewModel {
 extension DetailViewModel: DetailViewInput {
     func viewWillAppear() {
         state = .loading
-        view?.configureNavigationBarTitle("\(self.attleteFullName) Details")
+        view?.configureNavigationBarTitle("\(self.attleteFullName) - Details")
         loadData()
     }
     

@@ -69,7 +69,7 @@ class MainViewModel {
     private func transformToViewDTO(index: Int = -1) {
         if dom.count > 0 {
             self.state = .data(
-                self.dom.sorted(by: { $0>$1 })
+                self.dom.sorted(by: { $0 < $1 })
                     .map { value -> GameCellModel in
                         .init(header: .init(gameName: value.title, gameYear: String(value.yearRaw)), state: self.transformToViewDTOHelper(value: value, index: index))
                 }
@@ -115,7 +115,7 @@ class MainViewModel {
             case .failure(_):
                 self.state = .error("It's impossible to call API Data")
             case .success(let games):
-                self.dom = games.map { Game($0) }.sorted {$0 > $1}
+                self.dom = games.map { Game($0) }.sorted {$0 < $1}
                 self.dom.enumerated().forEach {
                     self.getAttleteInfo($1, index: $0)
                 }

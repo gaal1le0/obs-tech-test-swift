@@ -12,14 +12,9 @@ public class PhotoCell: UITableViewCell {
     
     // MARK: - Properties
     public static let Identifier = "PhotoCell.Identifier"
-    
-    let container = Atoms.StackViews.Vertical
+
     let profilePhoto = UIImageView(frame: .zero)
     let loader = Molecules.Spinner
-    
-    lazy var allSubviews: [UIView] = {
-        return [loader, profilePhoto]
-    }()
     
     // MARK: - Inits
     init() {
@@ -49,11 +44,9 @@ extension PhotoCell {
         loader.translatesAutoresizingMaskIntoConstraints = false
         loader.start()
         
-        allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        allSubviews.forEach { container.addArrangedSubview($0) }
-        
-        container.fill(profilePhoto)
-        fill(container, edges: Tokens.Edges.Primary)
+        profilePhoto.translatesAutoresizingMaskIntoConstraints = false
+        fill(profilePhoto, edges: Tokens.Edges.Primary)
+        fill(loader)
         
         NSLayoutConstraint.activate([
             profilePhoto.heightAnchor.constraint(equalToConstant: 190)
