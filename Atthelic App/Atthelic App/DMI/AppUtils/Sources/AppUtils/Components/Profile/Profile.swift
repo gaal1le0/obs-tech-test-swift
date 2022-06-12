@@ -35,6 +35,7 @@ public class Profile: UIView {
         profileImage.downloadedFrom(url: model.profileImageURL) {
             self.loader.stop()
             self.profileImage.isHidden = false
+            self.profileImage.circular()
         }
         profileName.text = model.fullName
     }
@@ -47,7 +48,6 @@ extension Profile {
         loader.start()
         
         profileImage.contentMode = .scaleAspectFill
-        profileImage.circular()
         profileImage.isHidden = true
         profileName.numberOfLines = 2
         profileName.textAlignment = .center

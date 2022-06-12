@@ -47,11 +47,10 @@ extension MedalCounter {
         allSubviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         allSubviews.forEach { circle.addArrangedSubview($0) }
         
-        circular()
-        circle.circular()
-        
         circle.layer.borderWidth = 1        
         fill(circle, edges: Tokens.Edges.Primary)
+        rounded()
+        circle.rounded()
         
         NSLayoutConstraint.activate([
             circle.widthAnchor.constraint(equalToConstant: 28),

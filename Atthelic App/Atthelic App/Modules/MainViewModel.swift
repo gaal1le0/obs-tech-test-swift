@@ -53,6 +53,7 @@ class MainViewModel {
                 }
                 return .error(.init(message: "There's no attlete to show :(", tapOnRetry: {
                     if index != -1 {
+                        print(">>> Reload data due to invalid dataset")
                         self.dom[index].isLoading = true
                         self.getAttleteInfo(value, index: index)
                     }
@@ -62,6 +63,7 @@ class MainViewModel {
         }
         return .error(.init(message: "Impossible to laod data from API", tapOnRetry: {
             if index != -1 {
+                print(">>> Reloading data due to internal API error")
                 self.dom[index].isLoading = true
                 self.getAttleteInfo(value, index: index)
             }
