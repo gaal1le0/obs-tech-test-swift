@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E63EDE6D285355EC003E1D17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63EDE6C285355EC003E1D17 /* Assets.xcassets */; };
 		E63EDE7428555C1B003E1D17 /* AttleteScore+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63EDE7328555C1B003E1D17 /* AttleteScore+Domain.swift */; };
 		E65779A3284F8E0700E69329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A2284F8E0700E69329 /* AppDelegate.swift */; };
 		E65779A5284F8E0700E69329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65779A4284F8E0700E69329 /* SceneDelegate.swift */; };
@@ -43,6 +42,7 @@
 		E672AAE32851DF79007DD4E6 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E672AADD2851DF21007DD4E6 /* Roboto-Italic.ttf */; };
 		E688B9B4285145A9004275F8 /* Measure+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E688B9B3285145A9004275F8 /* Measure+Domain.swift */; };
 		E688B9B928514A9C004275F8 /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E688B9B828514A9C004275F8 /* Services */; };
+		E6ABC95A2855F55000B2705B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6ABC9592855F55000B2705B /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E63EDE6C285355EC003E1D17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E63EDE7328555C1B003E1D17 /* AttleteScore+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttleteScore+Domain.swift"; sourceTree = "<group>"; };
 		E657799F284F8E0700E69329 /* Atthelic App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Atthelic App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65779A2284F8E0700E69329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		E672AADF2851DF21007DD4E6 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		E688B9B3285145A9004275F8 /* Measure+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Measure+Domain.swift"; sourceTree = "<group>"; };
 		E688B9B5285146C2004275F8 /* Services */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Services; sourceTree = "<group>"; };
+		E6ABC9592855F55000B2705B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6E23BB128520D3500FA97C1 /* UITesting.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UITesting.xcodeproj; path = "Atthelic App/UITesting/UITesting.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,7 +221,7 @@
 				E672AADD2851DF21007DD4E6 /* Roboto-Italic.ttf */,
 				E672AADE2851DF21007DD4E6 /* Roboto-Regular.ttf */,
 				E672AADF2851DF21007DD4E6 /* Roboto-Thin.ttf */,
-				E63EDE6C285355EC003E1D17 /* Assets.xcassets */,
+				E6ABC9592855F55000B2705B /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -453,7 +453,7 @@
 				E672AAE32851DF79007DD4E6 /* Roboto-Italic.ttf in Resources */,
 				E672AAE22851DF79007DD4E6 /* Roboto-Bold.ttf in Resources */,
 				E672AAE12851DF79007DD4E6 /* Roboto-Regular.ttf in Resources */,
-				E63EDE6D285355EC003E1D17 /* Assets.xcassets in Resources */,
+				E6ABC95A2855F55000B2705B /* Assets.xcassets in Resources */,
 				E672AAE02851DF79007DD4E6 /* Roboto-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
